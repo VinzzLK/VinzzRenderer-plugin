@@ -24,7 +24,9 @@ jobs:
       - run: sdkmanager "ndk;27.3.13750724"
 
       - name: Link core
-        run: cp -r core/MobileGlues-cpp plugin/MobileGlues/MobileGlues-cpp
+        run: |
+          mkdir -p plugin/MobileGlues
+          cp -r core/MobileGlues-cpp plugin/MobileGlues/MobileGlues-cpp
 
       - name: Build APK
         run: |
