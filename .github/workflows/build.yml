@@ -21,15 +21,19 @@ jobs:
 
       - run: sdkmanager "ndk;27.3.13750724"
 
-      - name: Link core
+      - name: Link core + fix local.properties
         run: |
           mkdir -p MobileGlues
           cp -r core/MobileGlues-cpp MobileGlues/MobileGlues-cpp
+          ls MobileGlues/MobileGlues-cpp/CMakeLists.txt
+          rm -f local.properties
+          echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
+          echo "ndk.dir=$ANDROID_SDK_ROOT/ndk/27.3.13750724" >> local.properties
 
       - name: Build APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug --stacktrace
 
       - uses: actions/upload-artifact@v4
         with:
