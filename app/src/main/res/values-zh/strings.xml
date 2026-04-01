@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MobileGlues</string>
+
+    <string name="view_version">版本：</string>
+    <string name="view_author">开发者：</string>
+    <string name="view_copyright">开源许可证：</string>
+    <string name="view_launcher">兼容的启动器：</string>
+    <string name="view_logo">图标设计:</string>
+
+    <string name="open_options">修改渲染器设置</string>
+
+    <string name="menu_item_about">关于</string>
+
+    <string name="option_glsl_cache">最大 GLSL 缓存大小 (输入 -1 以禁用)</string>
+    <string name="option_glsl_cache_helper">单位：兆字节（MB）</string>
+    <string name="option_angle">启用 ANGLE 作为 OpenGL ES 驱动</string>
+    <string name="option_angle_disable_if_possible">尽可能不启用</string>
+    <string name="option_angle_enable_if_possible">尽可能启用</string>
+    <string name="option_angle_disable">不启用</string>
+    <string name="option_angle_enable">启用</string>
+
+    <string name="option_glsl_cache_error_range">错误：不能为 0 或小于 -1。</string>
+    <string name="option_glsl_cache_error_invalid">错误：无效的值</string>
+
+    <string name="option_no_error">OpenGL 报错设置</string>
+    <string name="option_no_error_auto">自动</string>
+    <string name="option_no_error_enable">不忽略报错</string>
+    <string name="option_no_error_disable_pri">忽略 shader/program 报错</string>
+    <string name="option_no_error_disable_sec">忽略 shader/program/framebuffer 报错</string>
+
+    <string name="option_multidraw_mode">MultiDraw 模拟方案</string>
+    <string name="option_multidraw_mode_auto">自动</string>
+    <string name="option_multidraw_mode_indirect">尽量使用 Indirect 方案模拟</string>
+    <string name="option_multidraw_mode_basevertex">尽量使用 BaseVertex 方案模拟</string>
+    <string name="option_multidraw_mode_multidraw_indirect">尽量使用 MultiDraw Indirect 方案模拟</string>
+    <string name="option_multidraw_mode_drawelements">强制使用 DrawElements 方案模拟</string>
+    <string name="option_multidraw_mode_compute">尽量使用 Compute 方案模拟</string>
+
+    <string name="option_angle_clear_workaround">ANGLE Depth Clear 修复方案</string>
+    <string name="option_angle_clear_workaround_disable">不启用</string>
+    <string name="option_angle_clear_workaround_enable_1">启用方案 #1</string>
+
+    <string name="option_ext_cs">启用不完整的 ARB_compute_shader 扩展</string>
+    <string name="option_ext_timer_query">禁用推荐的 timer_query 扩展</string>
+    <string name="option_ext_direct_state_access">启用高级的 direct_state_access 扩展</string>
+    <string name="option_enable_fsr1">(实验性) 启用内置的 FSR1</string>
+
+    <string name="option_custom_gl_version">自定义目标 OpenGL 版本</string>
+    <string name="warning_enabling_custom_gl_version"><![CDATA[<b><big>⚠️ 重要信息：</big></b><br/><br/>
+ • 自定义 OpenGL 版本可能会<b><font color="@colorError">造成游戏崩溃或渲染错误，请谨慎使用</font></b>！<br/>
+ • 若发生问题，请首先<b><font color="@colorError">关闭此功能</font></b>！<br/>
+ • 您启用此功能后，我们将<b><font color="@colorError">不再受理</font></b>您遇到的所有额外问题！反馈问题前，请注意<b><font color="@colorError">禁用此功能</font></b>！<br/>
+ • 为确保稳定性，在没有必要的情况（如 Mods 强行检测 OpenGL 版本等）下，请<b>不要启用此功能</b>！]]></string>
+
+    <string name="dialog_positive">确认</string>
+    <string name="dialog_negative">取消</string>
+    <string name="dialog_github">GitHub 发布页</string>
+    <string name="dialog_sponsor">赞助我们</string>
+
+    <string name="dialog_info">应用信息</string>
+
+    <string name="dialog_permission_title">请前往授权</string>
+    <string name="dialog_permission_msg">你似乎禁止了授权请求。修改配置需要“存储”权限，你必须在授权后才能修改渲染器设置。</string>
+    <string name="dialog_permission_msg_android_Q">修改渲染选项需要“所有文件访问权限”，请在接下来的页面中授予此权限以允许应用访问：\n%s\n\n注意：本应用是自由软件，且完全离线运行，无网络访问权限，绝不收集或泄露您的任何个人数据。</string>
+
+    <string name="permission_failed">授权失败</string>
+
+    <string name="dialog_title_warning">警告</string>
+    <string name="warning_ext_cs_enable">启用不完整的 ARB_compute_shader 扩展可能会导致部分光影、Mods 错误，是否继续？</string>
+    <string name="warning_adreno_740_angle">在 Adreno 740 设备上启用 ANGLE 极有可能导致严重渲染错误，是否继续？</string>
+    <string name="warning_enabling_angle_clear_workaround">启用 ANGLE Depth Clear 修复会修复 ANGLE 在 Minecraft 1.21.5+ 原版中的手持物品被遮挡的问题，但会导致性能下降，是否继续？</string>
+    <string name="warning_fsr1_enable">启用内置的 FSR1 可能会在部分驱动下造成图像损坏。\n如果您的设备搭载了 Adreno GPU，请启用 ANGLE以确保渲染正常。\n已知此功能与 ANGLE 同时启用会导致性能下降，请谨慎启用。</string>
+
+    <string name="menu_item_remove">移除 MobileGlues 相关文件</string>
+    <string name="remove_mg_files_message"><![CDATA[此操作将彻底删除与 MobileGlues 相关的所有文件。具体包括：<br/><br/>
+ • <b>所有配置文件：</b> 任何您自定义的设置、偏好选项以及可能的应用运行所需的配置文件将被移除。<br/>
+ • <b>缓存文件：</b> MobileGlues 运行时生成的 GLSL 缓存（用于加快加载速度）将被清空。<br/>
+ • <b>日志文件：</b> MobileGlues 运行过程中产生的日志文件将被删除。<br/><br/>
+请注意，此操作是<b><font color="@colorError">不可逆</font></b>的。 一旦您点击“确定”，上述所有文件将被永久删除，无法恢复。如果您在未来要重新使用 MobileGlues，您将需要重新配置 MobileGlues。<br/><br/>
+<b><font color="@colorError">确定要继续吗？</font></b>]]></string>
+    <string name="ok">确定</string>
+    <string name="ok_with_countdown">确定 (%d 秒)</string>
+	<string name="removing_mobileglues">正在移除 MobileGlues…</string>
+    <string name="remove_failed">移除失败: %s</string>
+    <string name="remove_complete_title">移除完成</string>
+    <string name="remove_complete_message">MobileGlues 相关文件已完全移除。\n若需进一步在您的设备上完全移除 MobileGlues，请卸载此软件。</string>
+    <string name="exit">退出</string>
+
+    <string name="info_mg_info">MobileGlues 信息</string>
+    <string name="button_view_gl_info">查看</string>
+    <string name="dialog_mg_gl_info_title">MobileGlues 信息</string>
+    <string name="dismiss">关闭</string>
+</resources>
