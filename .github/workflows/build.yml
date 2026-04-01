@@ -5,8 +5,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          path: plugin
 
       - uses: actions/checkout@v4
         with:
@@ -25,16 +23,15 @@ jobs:
 
       - name: Link core
         run: |
-          mkdir -p plugin/MobileGlues
-          cp -r core/MobileGlues-cpp plugin/MobileGlues/MobileGlues-cpp
+          mkdir -p MobileGlues
+          cp -r core/MobileGlues-cpp MobileGlues/MobileGlues-cpp
 
       - name: Build APK
         run: |
-          cd plugin
           chmod +x gradlew
           ./gradlew assembleDebug
 
       - uses: actions/upload-artifact@v4
         with:
           name: VinzzRenderer-APK
-          path: plugin/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
