@@ -32,10 +32,16 @@ jobs:
       - name: Build APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug
+          ./gradlew assembleDebug 2>&1 | tee build.log || true
+          echo "=== C++ ERRORS ==="
+          grep -E "error:|FAILED" build.log | head -30
+          grep -c "error:" build.log && exit 1 || exit 0
 
-      - name: Find APK
-        run: find . -name "*.apk" -type f
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: build-log
+          path: build.log
 
       - uses: actions/upload-artifact@v4
         with:
