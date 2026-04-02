@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.vinzz.vinzzrender"
+    namespace = "com.fcl.plugin.mobileglues"
     compileSdk = 36
 
     ndkVersion = "27.3.13750724"
