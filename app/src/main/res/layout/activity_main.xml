@@ -1,185 +1,304 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/vinzz_bg"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
+    <!-- Top AppBar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/vinzz_bg"
         android:fitsSystemWindows="true"
+        app:elevation="0dp"
         app:liftOnScroll="true">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="64dp"
+            android:background="@color/vinzz_bg"
             app:layout_collapseMode="pin"
-            app:title="@string/app_name"
-            app:titleCentered="true" />
+            app:title="VINZZRENDER"
+            app:titleCentered="true"
+            app:titleTextColor="@color/vinzz_blue"
+            app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium"/>
+
+        <!-- Blue glow divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/vinzz_border"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Scrollable content -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/vinzz_bg"
         android:visibility="gone"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="SpeakableTextPresentCheck">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:id="@+id/option_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:orientation="vertical"
+            android:padding="12dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/input_max_glsl_cache_size_layout"
+            <!-- GLSL Cache Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="12dp"
-                android:hint="@string/option_glsl_cache"
-                app:counterEnabled="true"
-                app:errorEnabled="true"
-                app:helperText="@string/option_glsl_cache_helper"
-                app:helperTextEnabled="true"
-                app:layout_constraintBottom_toTopOf="@+id/text_option_angle"
-                app:placeholderText="32">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_max_glsl_cache_size"
+                android:layout_marginBottom="8dp">
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_max_glsl_cache_size_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="numberSigned" />
+                    android:layout_margin="12dp"
+                    android:hint="@string/option_glsl_cache"
+                    app:boxStrokeColor="@color/vinzz_blue"
+                    app:counterEnabled="true"
+                    app:errorEnabled="true"
+                    app:helperText="@string/option_glsl_cache_helper"
+                    app:helperTextEnabled="true"
+                    app:helperTextTextColor="@color/vinzz_text_dim"
+                    app:hintTextColor="@color/vinzz_blue"
+                    app:placeholderText="100">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/input_max_glsl_cache_size"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned"
+                        android:textColor="@color/vinzz_text"/>
+                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/text_option_angle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/option_angle"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_angle"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/spinner_angle"
+            <!-- ANGLE Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_option_no_error" />
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/text_option_angle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/option_angle"
+                        android:textColor="@color/vinzz_text_dim"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/spinner_angle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/text_option_no_error"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/option_no_error"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_no_error"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/spinner_no_error"
+            <!-- Error Setting Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_option_multidraw_mode" />
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/text_option_no_error"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/option_no_error"
+                        android:textColor="@color/vinzz_text_dim"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/spinner_no_error"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/text_option_multidraw_mode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/option_multidraw_mode"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_multidraw_mode"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/spinner_multidraw_mode"
+            <!-- MultiDraw Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_option_gl_version" />
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/text_option_multidraw_mode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/option_multidraw_mode"
+                        android:textColor="@color/vinzz_text_dim"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/spinner_multidraw_mode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/text_option_gl_version"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/option_custom_gl_version"
-                app:layout_constraintBottom_toTopOf="@+id/spinner_custom_gl_version"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/spinner_custom_gl_version"
+            <!-- OpenGL Version Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_angle_clear_workaround" />
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/text_option_gl_version"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/option_custom_gl_version"
+                        android:textColor="@color/vinzz_text_dim"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/spinner_custom_gl_version"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/text_angle_clear_workaround"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:text="@string/option_angle_clear_workaround"
-                app:layout_constraintBottom_toTopOf="@+id/angle_clear_workaround"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <Spinner
-                android:id="@+id/angle_clear_workaround"
+            <!-- ANGLE Depth Clear Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:minHeight="48dp"
-                app:layout_constraintBottom_toTopOf="@+id/switch_ext_cs" />
+                android:layout_marginBottom="8dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+                    <TextView
+                        android:id="@+id/text_angle_clear_workaround"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="6dp"
+                        android:text="@string/option_angle_clear_workaround"
+                        android:textColor="@color/vinzz_text_dim"
+                        android:textSize="12sp"/>
+                    <Spinner
+                        android:id="@+id/angle_clear_workaround"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="48dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/switch_ext_cs"
+            <!-- VinzzRenderer Optimizations Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/VinzzCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/option_ext_cs"
-                app:layout_constraintBottom_toTopOf="@+id/switch_ext_timer_query" />
+                android:layout_marginBottom="8dp"
+                app:strokeColor="@color/vinzz_blue"
+                app:strokeWidth="1dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="12dp">
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/switch_ext_timer_query"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/option_ext_timer_query"
-                app:layout_constraintBottom_toTopOf="@+id/switch_ext_direct_state_access" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="VinzzRenderer Optimizations"
+                        android:textColor="@color/vinzz_blue"
+                        android:textSize="13sp"
+                        android:textStyle="bold"/>
 
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/switch_ext_direct_state_access"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/option_ext_direct_state_access"
-                app:layout_constraintBottom_toTopOf="@id/switch_enable_fsr1"/>
-            
-            <com.google.android.material.materialswitch.MaterialSwitch
-                android:id="@+id/switch_enable_fsr1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/option_enable_fsr1"
-                app:layout_constraintBottom_toBottomOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_ext_cs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/option_ext_cs"
+                        android:textColor="@color/vinzz_text"/>
 
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_ext_timer_query"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/option_ext_timer_query"
+                        android:textColor="@color/vinzz_text"/>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_ext_direct_state_access"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/option_ext_direct_state_access"
+                        android:textColor="@color/vinzz_text"/>
+
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_enable_fsr1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="4dp"
+                        android:text="@string/option_enable_fsr1"
+                        android:textColor="@color/vinzz_text"/>
+
+                    <!-- NEW: Tiled Optimization Toggle -->
+                    <com.google.android.material.materialswitch.MaterialSwitch
+                        android:id="@+id/switch_tiled_opt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:checked="true"
+                        android:text="Adreno Tiled Rendering Optimization"
+                        android:textColor="@color/vinzz_accent"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <Button
+    <!-- Center button -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/open_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="6dp"
-        android:text="@string/open_options" />
+        android:text="@string/open_options"
+        app:backgroundTint="@color/vinzz_blue_dark"
+        app:cornerRadius="8dp"
+        app:strokeColor="@color/vinzz_blue"
+        app:strokeWidth="1dp"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
