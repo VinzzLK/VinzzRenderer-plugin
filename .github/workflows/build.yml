@@ -25,7 +25,6 @@ jobs:
         run: |
           mkdir -p MobileGlues
           cp -r core/MobileGlues-cpp MobileGlues/MobileGlues-cpp
-          ls MobileGlues/MobileGlues-cpp/CMakeLists.txt
           rm -f local.properties
           echo "sdk.dir=$ANDROID_SDK_ROOT" > local.properties
           echo "ndk.dir=$ANDROID_SDK_ROOT/ndk/27.3.13750724" >> local.properties
@@ -33,9 +32,12 @@ jobs:
       - name: Build APK
         run: |
           chmod +x gradlew
-          ./gradlew assembleDebug --stacktrace --info 2>&1 | tail -100
+          ./gradlew assembleDebug
+
+      - name: Find APK
+        run: find . -name "*.apk" -type f
 
       - uses: actions/upload-artifact@v4
         with:
           name: VinzzRenderer-APK
-          path: app/build/outputs/apk/**/*.apk
+          path: app/build/outputs/apk/debug/
