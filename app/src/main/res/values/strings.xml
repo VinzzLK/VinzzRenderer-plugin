@@ -43,18 +43,18 @@
 <string name="option_angle_clear_workaround_disable">Disable</string>  
 <string name="option_angle_clear_workaround_enable_1">Enable workaround #1</string>  
 
-<string name="option_ext_cs">Enable Incomplete \'ARB_compute_shader\' Extension</string>  
-<string name="option_ext_timer_query">Disable Recommended \'timer_query\' Extension</string>  
-<string name="option_ext_direct_state_access">Enable Advanced \'direct_state_access\' Extension</string>  
+<string name="option_ext_cs">Enable Incomplete \&#x27;ARB_compute_shader\&#x27; Extension</string>  
+<string name="option_ext_timer_query">Disable Recommended \&#x27;timer_query\&#x27; Extension</string>  
+<string name="option_ext_direct_state_access">Enable Advanced \&#x27;direct_state_access\&#x27; Extension</string>  
 <string name="option_enable_fsr1" tools:ignore="Typos">(Experimental) Enable built-in FSR1</string>  
 
 <string name="option_custom_gl_version">Custom target OpenGL Version</string>  
-<string name="warning_enabling_custom_gl_version">&lt;![CDATA[&lt;b&gt;&lt;big&gt;⚠️ Important Notice:&lt;/big&gt;&lt;/b&gt;&lt;br/&gt;&lt;br/&gt;
+<string name="warning_enabling_custom_gl_version">&amp;lt;![CDATA[&amp;lt;b&amp;gt;&amp;lt;big&amp;gt;⚠️ Important Notice:&amp;lt;/big&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
 
-• Setting a custom OpenGL version may &lt;b&gt;&lt;font color="@colorError"&gt;cause game crashes or rendering issues — proceed with caution&lt;/font&gt;&lt;/b&gt;!&lt;br/&gt;
-• If any issues occur, please &lt;b&gt;&lt;font color="@colorError"&gt;disable this feature&lt;/font&gt;&lt;/b&gt; first!&lt;br/&gt;
-• Once you enable this feature, we will &lt;b&gt;&lt;font color="@colorError"&gt;no longer accept&lt;/font&gt;&lt;/b&gt; any bug reports related to additional issues! Before reporting problems, please make sure to &lt;b&gt;&lt;font color="@colorError"&gt;disable this feature&lt;/font&gt;&lt;/b&gt;!&lt;br/&gt;
-• For stability, &lt;b&gt;do not enable this feature&lt;/b&gt; unless absolutely necessary (e.g., mods requiring specific OpenGL versions)!]]&gt;</string>
+• Setting a custom OpenGL version may &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;cause game crashes or rendering issues — proceed with caution&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;!&amp;lt;br/&amp;gt;
+• If any issues occur, please &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;disable this feature&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt; first!&amp;lt;br/&amp;gt;
+• Once you enable this feature, we will &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;no longer accept&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt; any bug reports related to additional issues! Before reporting problems, please make sure to &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;disable this feature&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;!&amp;lt;br/&amp;gt;
+• For stability, &amp;lt;b&amp;gt;do not enable this feature&amp;lt;/b&amp;gt; unless absolutely necessary (e.g., mods requiring specific OpenGL versions)!]]&amp;gt;</string>
 
 <string name="dialog_positive">OK</string>  
 <string name="dialog_negative">Cancel</string>  
@@ -65,7 +65,7 @@
 
 <string name="dialog_permission_title">Permission Required</string>  
 <string name="dialog_permission_msg">It looks like you denied the permission request. You must grant storage permission to modify the renderer settings.</string>  
-<string name="dialog_permission_msg_android_Q">Modifying rendering options requires \'All Files Access\' permission. Please grant this permission on the following screen to allow the app to access:\n%s\n\nNote: This is free software that runs completely offline. It has no network access and will never collect or leak your personal data.</string>  
+<string name="dialog_permission_msg_android_Q">Modifying rendering options requires \&#x27;All Files Access\&#x27; permission. Please grant this permission on the following screen to allow the app to access:\n%s\n\nNote: This is free software that runs completely offline. It has no network access and will never collect or leak your personal data.</string>  
 
 <string name="permission_failed">Permission denied</string>  
 
@@ -76,13 +76,13 @@
 <string name="warning_fsr1_enable">Enabling the built-in FSR1 may cause image corruption on some drivers.\nIf your device is equipped with an Adreno GPU, please enable ANGLE to ensure correct rendering.\nIt is known that enabling this feature together with ANGLE can cause performance degradation, so please enable with caution.</string>  
 
 <string name="menu_item_remove">Remove VinzzRender related files</string>  
-<string name="remove_mg_files_message">&lt;![CDATA[This action will completely delete all files associated with VinzzRender. This includes:&lt;br/&gt;&lt;br/&gt;
+<string name="remove_mg_files_message">&amp;lt;![CDATA[This action will completely delete all files associated with VinzzRender. This includes:&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
 
-• &lt;b&gt;All configuration files:&lt;/b&gt; Any of your custom settings, preferences, and possible configuration files required for the application to run will be removed.&lt;br/&gt;
-• &lt;b&gt;Cache files:&lt;/b&gt; The GLSL cache generated by VinzzRender during runtime (used to speed up loading) will be cleared.&lt;br/&gt;
-• &lt;b&gt;Log files:&lt;/b&gt; Log files generated during the operation of VinzzRender will be deleted.&lt;br/&gt;&lt;br/&gt;
-Please note, this action is &lt;b&gt;&lt;font color="@colorError"&gt;irreversible&lt;/font&gt;&lt;/b&gt;. Once you click "OK", all the files mentioned above will be permanently deleted and cannot be recovered. If you are going to use VinzzRender again in the future, you will need to reconfigure it.&lt;br/&gt;&lt;br/&gt;
-&lt;b&gt;&lt;font color="@colorError"&gt;Are you sure you want to continue?&lt;/font&gt;&lt;/b&gt;]]&gt;</string>
+• &amp;lt;b&amp;gt;All configuration files:&amp;lt;/b&amp;gt; Any of your custom settings, preferences, and possible configuration files required for the application to run will be removed.&amp;lt;br/&amp;gt;
+• &amp;lt;b&amp;gt;Cache files:&amp;lt;/b&amp;gt; The GLSL cache generated by VinzzRender during runtime (used to speed up loading) will be cleared.&amp;lt;br/&amp;gt;
+• &amp;lt;b&amp;gt;Log files:&amp;lt;/b&amp;gt; Log files generated during the operation of VinzzRender will be deleted.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+Please note, this action is &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;irreversible&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;. Once you click &quot;OK&quot;, all the files mentioned above will be permanently deleted and cannot be recovered. If you are going to use VinzzRender again in the future, you will need to reconfigure it.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+&amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;Are you sure you want to continue?&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;]]&amp;gt;</string>
 <string name="ok">OK</string>
 <string name="ok_with_countdown">OK (%d s)</string>
 <string name="removing_mobileglues">Removing VinzzRender…</string>
@@ -116,7 +116,7 @@ Please note, this action is &lt;b&gt;&lt;font color="@colorError"&gt;irreversibl
 <string name="vinzz_preset_ultra">Ultra Performance (No Throttle)</string>  
 <string name="vinzz_section_advanced">🔧 Advanced (Adreno 650)</string>
 
-    <string name="vinzz_skip_small_draws">Skip Tiny Draws (skip &lt;6 vertex calls)</string>
+    <string name="vinzz_skip_small_draws">Skip Tiny Draws (skip &amp;lt;6 vertex calls)</string>
     <string name="vinzz_fbo_cache">FBO Status Cache (skip redundant FBO checks)</string>
     <string name="vinzz_color_invalidate">Color Buffer Invalidation (aggressive, may glitch)</string>
     <string name="vinzz_multidraw_sodium">Sodium MultiDraw Tuning</string>
