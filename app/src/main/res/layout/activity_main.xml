@@ -151,12 +151,20 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:valueFrom="1"
-                        android:valueTo="4"
+                        android:valueTo="5"
                         android:stepSize="1"
-                        android:value="2"
+                        android:value="3"
                         app:thumbColor="@color/vinzz_accent"
                         app:trackColorActive="@color/vinzz_accent"
                         app:trackColorInactive="@color/vinzz_border"/>
+                    <TextView
+                        android:id="@+id/text_anisotropic_value"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="4x Anisotropic"
+                        android:textColor="@color/vinzz_accent"
+                        android:textSize="11sp"
+                        android:gravity="center"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
