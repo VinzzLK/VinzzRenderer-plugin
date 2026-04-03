@@ -144,6 +144,58 @@ class MGConfig private constructor(val context: Context, private var isInitializ
     var vinzz_mip_bias_x10: Int = -5
         set(value) { if (field != value) { field = value; saveIfReady() } }
 
+    // ===== VinzzRenderer Optimizations =====
+    var vinzz_no_throttle: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_fast_hints: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_disable_dither: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_skip_small_draws: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_state_cache: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_fbo_cache: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_smart_invalidate: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_color_invalidate: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_qcom_tiling: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_multidraw_sodium: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_shader_cache_aggressive: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_fence_pool: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_disjoint_timer_off: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_sodium_mode: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_tex_cache: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_persistent_vbo: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_index_reuse: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_batch_uniforms: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_early_z: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_glsl_pragma_opt: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_reduce_precision: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_mediump_fragment: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_astc_prefer: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_anisotropic_level: Int = 4
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzz_mip_bias_x10: Int = -5
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+
     // ---- 对外操作 ----
 
     private fun saveIfReady() {
@@ -178,40 +230,40 @@ class MGConfig private constructor(val context: Context, private var isInitializ
     }
 
     private fun buildConfigMap(): Map<String, Int> = mapOf(
-        "enableANGLE" to enableANGLE,
-        "enableNoError" to enableNoError,
-        "enableExtTimerQuery" to enableExtTimerQuery,
-        "enableExtComputeShader" to enableExtComputeShader,
-        "enableExtDirectStateAccess" to enableExtDirectStateAccess,
-        "maxGlslCacheSize" to maxGlslCacheSize,
-        "multidrawMode" to multidrawMode,
-        "angleDepthClearFixMode" to angleDepthClearFixMode,
-        "customGLVersion" to customGLVersion,
-        "fsr1Setting" to fsr1Setting,
-        "vinzz_no_throttle" to vinzz_no_throttle,
-        "vinzz_fast_hints" to vinzz_fast_hints,
-        "vinzz_disable_dither" to vinzz_disable_dither,
-        "vinzz_skip_small_draws" to vinzz_skip_small_draws,
-        "vinzz_state_cache" to vinzz_state_cache,
-        "vinzz_fbo_cache" to vinzz_fbo_cache,
-        "vinzz_smart_invalidate" to vinzz_smart_invalidate,
-        "vinzz_color_invalidate" to vinzz_color_invalidate,
-        "vinzz_qcom_tiling" to vinzz_qcom_tiling,
-        "vinzz_multidraw_sodium" to vinzz_multidraw_sodium,
-        "vinzz_shader_cache_aggressive" to vinzz_shader_cache_aggressive,
-        "vinzz_fence_pool" to vinzz_fence_pool,
-        "vinzz_disjoint_timer_off" to vinzz_disjoint_timer_off,
-        "vinzz_sodium_mode" to vinzz_sodium_mode,
-        "vinzz_tex_cache" to vinzz_tex_cache,
-        "vinzz_persistent_vbo" to vinzz_persistent_vbo,
-        "vinzz_index_reuse" to vinzz_index_reuse,
-        "vinzz_batch_uniforms" to vinzz_batch_uniforms,
-        "vinzz_early_z" to vinzz_early_z,
-        "vinzz_glsl_pragma_opt" to vinzz_glsl_pragma_opt,
-        "vinzz_reduce_precision" to vinzz_reduce_precision,
-        "vinzz_mediump_fragment" to vinzz_mediump_fragment,
-        "vinzz_astc_prefer" to vinzz_astc_prefer,
-        "vinzz_anisotropic_level" to vinzz_anisotropic_level,
+        "enableANGLE" to enableANGLE
+        "enableNoError" to enableNoError
+        "enableExtTimerQuery" to enableExtTimerQuery
+        "enableExtComputeShader" to enableExtComputeShader
+        "enableExtDirectStateAccess" to enableExtDirectStateAccess
+        "maxGlslCacheSize" to maxGlslCacheSize
+        "multidrawMode" to multidrawMode
+        "angleDepthClearFixMode" to angleDepthClearFixMode
+        "customGLVersion" to customGLVersion
+        "fsr1Setting" to fsr1Setting
+        "vinzz_no_throttle" to vinzz_no_throttle
+        "vinzz_fast_hints" to vinzz_fast_hints
+        "vinzz_disable_dither" to vinzz_disable_dither
+        "vinzz_skip_small_draws" to vinzz_skip_small_draws
+        "vinzz_state_cache" to vinzz_state_cache
+        "vinzz_fbo_cache" to vinzz_fbo_cache
+        "vinzz_smart_invalidate" to vinzz_smart_invalidate
+        "vinzz_color_invalidate" to vinzz_color_invalidate
+        "vinzz_qcom_tiling" to vinzz_qcom_tiling
+        "vinzz_multidraw_sodium" to vinzz_multidraw_sodium
+        "vinzz_shader_cache_aggressive" to vinzz_shader_cache_aggressive
+        "vinzz_fence_pool" to vinzz_fence_pool
+        "vinzz_disjoint_timer_off" to vinzz_disjoint_timer_off
+        "vinzz_sodium_mode" to vinzz_sodium_mode
+        "vinzz_tex_cache" to vinzz_tex_cache
+        "vinzz_persistent_vbo" to vinzz_persistent_vbo
+        "vinzz_index_reuse" to vinzz_index_reuse
+        "vinzz_batch_uniforms" to vinzz_batch_uniforms
+        "vinzz_early_z" to vinzz_early_z
+        "vinzz_glsl_pragma_opt" to vinzz_glsl_pragma_opt
+        "vinzz_reduce_precision" to vinzz_reduce_precision
+        "vinzz_mediump_fragment" to vinzz_mediump_fragment
+        "vinzz_astc_prefer" to vinzz_astc_prefer
+        "vinzz_anisotropic_level" to vinzz_anisotropic_level
         "vinzz_mip_bias_x10" to vinzz_mip_bias_x10
     )
 
@@ -251,6 +303,32 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             angleDepthClearFixMode = obj.int("angleDepthClearFixMode", 0)
             customGLVersion = obj.int("customGLVersion", 0)
             fsr1Setting = obj.int("fsr1Setting", 0)
+
+            vinzz_no_throttle = obj.int("vinzz_no_throttle", 0)
+            vinzz_fast_hints = obj.int("vinzz_fast_hints", 1)
+            vinzz_disable_dither = obj.int("vinzz_disable_dither", 1)
+            vinzz_skip_small_draws = obj.int("vinzz_skip_small_draws", 0)
+            vinzz_state_cache = obj.int("vinzz_state_cache", 1)
+            vinzz_fbo_cache = obj.int("vinzz_fbo_cache", 1)
+            vinzz_smart_invalidate = obj.int("vinzz_smart_invalidate", 1)
+            vinzz_color_invalidate = obj.int("vinzz_color_invalidate", 0)
+            vinzz_qcom_tiling = obj.int("vinzz_qcom_tiling", 1)
+            vinzz_multidraw_sodium = obj.int("vinzz_multidraw_sodium", 1)
+            vinzz_shader_cache_aggressive = obj.int("vinzz_shader_cache_aggressive", 1)
+            vinzz_fence_pool = obj.int("vinzz_fence_pool", 1)
+            vinzz_disjoint_timer_off = obj.int("vinzz_disjoint_timer_off", 1)
+            vinzz_sodium_mode = obj.int("vinzz_sodium_mode", 1)
+            vinzz_tex_cache = obj.int("vinzz_tex_cache", 1)
+            vinzz_persistent_vbo = obj.int("vinzz_persistent_vbo", 1)
+            vinzz_index_reuse = obj.int("vinzz_index_reuse", 1)
+            vinzz_batch_uniforms = obj.int("vinzz_batch_uniforms", 1)
+            vinzz_early_z = obj.int("vinzz_early_z", 1)
+            vinzz_glsl_pragma_opt = obj.int("vinzz_glsl_pragma_opt", 0)
+            vinzz_reduce_precision = obj.int("vinzz_reduce_precision", 0)
+            vinzz_mediump_fragment = obj.int("vinzz_mediump_fragment", 0)
+            vinzz_astc_prefer = obj.int("vinzz_astc_prefer", 1)
+            vinzz_anisotropic_level = obj.int("vinzz_anisotropic_level", 4)
+            vinzz_mip_bias_x10 = obj.int("vinzz_mip_bias_x10", -5)
             vinzz_no_throttle = obj.int("vinzz_no_throttle", 0)
             vinzz_fast_hints = obj.int("vinzz_fast_hints", 1)
             vinzz_disable_dither = obj.int("vinzz_disable_dither", 1)
