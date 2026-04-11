@@ -291,6 +291,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.scrollLayout.visibility = View.VISIBLE
 
         binding.root.post { isSpinnerInitialized = true }
+        setupVinzzSwitches()
     }
 
     private fun hideOptions() {
@@ -438,6 +439,31 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_ext_timer_query -> config?.enableExtTimerQuery = if (isChecked) 0 else 1
             R.id.switch_ext_direct_state_access -> config?.enableExtDirectStateAccess =
                 if (isChecked) 1 else 0
+
+            // ── VinzzRenderer switches ──
+            R.id.switch_vinzz_no_throttle          -> config?.vinzzNoThrottle          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_fast_hints           -> config?.vinzzFastHints           = if (isChecked) 1 else 0
+            R.id.switch_vinzz_disable_dither       -> config?.vinzzDisableDither       = if (isChecked) 1 else 0
+            R.id.switch_vinzz_state_cache          -> config?.vinzzStateCache          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_fbo_cache            -> config?.vinzzFboCache            = if (isChecked) 1 else 0
+            R.id.switch_vinzz_skip_small_draws     -> config?.vinzzSkipSmallDraws      = if (isChecked) 1 else 0
+            R.id.switch_vinzz_batch_uniforms       -> config?.vinzzBatchUniforms       = if (isChecked) 1 else 0
+            R.id.switch_vinzz_multidraw_sodium     -> config?.vinzzMultidrawSodium     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_qcom_tiling          -> config?.vinzzQcomTiling          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_fence_pool           -> config?.vinzzFencePool           = if (isChecked) 1 else 0
+            R.id.switch_vinzz_disjoint_timer_off   -> config?.vinzzDisjointTimerOff   = if (isChecked) 1 else 0
+            R.id.switch_vinzz_smart_invalidate     -> config?.vinzzSmartInvalidate     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_color_invalidate     -> config?.vinzzColorInvalidate     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_sodium_mode          -> config?.vinzzSodiumMode          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_persistent_vbo       -> config?.vinzzPersistentVbo       = if (isChecked) 1 else 0
+            R.id.switch_vinzz_index_reuse          -> config?.vinzzIndexReuse          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_tex_cache            -> config?.vinzzTexCache            = if (isChecked) 1 else 0
+            R.id.switch_vinzz_astc_prefer          -> config?.vinzzAstcPrefer          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_shader_cache_aggressive -> config?.vinzzShaderCacheAggressive = if (isChecked) 1 else 0
+            R.id.switch_vinzz_glsl_pragma_opt      -> config?.vinzzGlslPragmaOpt       = if (isChecked) 1 else 0
+            R.id.switch_vinzz_reduce_precision     -> config?.vinzzReducePrecision     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_mediump_fragment     -> config?.vinzzMediumpFragment     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_early_z              -> config?.vinzzEarlyZ              = if (isChecked) 1 else 0
         }
     }
 
@@ -666,4 +692,89 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     fun snackbar(text: CharSequence, duration: Int = Snackbar.LENGTH_SHORT) {
         Snackbar.make(binding.root, text, duration).show()
     }
+    // ──────────────────────────────────────────────────────
+    // VinzzRenderer: bind semua switch + slider ke MGConfig
+    // ──────────────────────────────────────────────────────
+    private fun setupVinzzSwitches() {
+        val cfg = config ?: return
+
+        // ── Performance ──
+        binding.switchVinzzNoThrottle.isChecked        = cfg.vinzzNoThrottle == 1
+        binding.switchVinzzFastHints.isChecked         = cfg.vinzzFastHints == 1
+        binding.switchVinzzDisableDither.isChecked     = cfg.vinzzDisableDither == 1
+        binding.switchVinzzStateCache.isChecked        = cfg.vinzzStateCache == 1
+        binding.switchVinzzFboCache.isChecked          = cfg.vinzzFboCache == 1
+        binding.switchVinzzSkipSmallDraws.isChecked    = cfg.vinzzSkipSmallDraws == 1
+        binding.switchVinzzBatchUniforms.isChecked     = cfg.vinzzBatchUniforms == 1
+        binding.switchVinzzMultidrawSodium.isChecked   = cfg.vinzzMultidrawSodium == 1
+        binding.switchVinzzQcomTiling.isChecked        = cfg.vinzzQcomTiling == 1
+        binding.switchVinzzFencePool.isChecked         = cfg.vinzzFencePool == 1
+        binding.switchVinzzDisjointTimerOff.isChecked  = cfg.vinzzDisjointTimerOff == 1
+        binding.switchVinzzSmartInvalidate.isChecked   = cfg.vinzzSmartInvalidate == 1
+        binding.switchVinzzColorInvalidate.isChecked   = cfg.vinzzColorInvalidate == 1
+        binding.switchVinzzSodiumMode.isChecked        = cfg.vinzzSodiumMode == 1
+        binding.switchVinzzPersistentVbo.isChecked     = cfg.vinzzPersistentVbo == 1
+        binding.switchVinzzIndexReuse.isChecked        = cfg.vinzzIndexReuse == 1
+
+        // ── Texture ──
+        binding.switchVinzzTexCache.isChecked          = cfg.vinzzTexCache == 1
+        binding.switchVinzzAstcPrefer.isChecked        = cfg.vinzzAstcPrefer == 1
+
+        // Anisotropic slider: 1→1x 2→2x 3→4x 4→8x 5→16x (log2 mapping)
+        val anisoSliderVal = when (cfg.vinzzAnisotropicLevel) {
+            1  -> 1f; 2 -> 2f; 4 -> 3f; 8 -> 4f; 16 -> 5f; else -> 3f
+        }
+        binding.sliderAnisotropic.value = anisoSliderVal
+        binding.textAnisotropicValue.text = "${cfg.vinzzAnisotropicLevel}x"
+        binding.sliderAnisotropic.addOnChangeListener { _, value, fromUser ->
+            if (!fromUser) return@addOnChangeListener
+            val level = when (value.toInt()) { 1->1; 2->2; 3->4; 4->8; 5->16; else->1 }
+            config?.vinzzAnisotropicLevel = level
+            binding.textAnisotropicValue.text = "${level}x"
+        }
+
+        // Mip bias slider: stored as x10, so -5 = -0.5
+        binding.sliderMipBias.value = cfg.vinzzMipBiasX10.toFloat()
+        binding.textMipBiasValue.text = "%.1f".format(cfg.vinzzMipBiasX10 / 10.0)
+        binding.sliderMipBias.addOnChangeListener { _, value, fromUser ->
+            if (!fromUser) return@addOnChangeListener
+            config?.vinzzMipBiasX10 = value.toInt()
+            binding.textMipBiasValue.text = "%.1f".format(value / 10.0)
+        }
+
+        // ── Shader ──
+        binding.switchVinzzShaderCacheAggressive.isChecked = cfg.vinzzShaderCacheAggressive == 1
+        binding.switchVinzzGlslPragmaOpt.isChecked         = cfg.vinzzGlslPragmaOpt == 1
+        binding.switchVinzzReducePrecision.isChecked       = cfg.vinzzReducePrecision == 1
+        binding.switchVinzzMediumpFragment.isChecked       = cfg.vinzzMediumpFragment == 1
+        binding.switchVinzzEarlyZ.isChecked                = cfg.vinzzEarlyZ == 1
+
+        // Register semua ke checkedChangeListener
+        listOf(
+            binding.switchVinzzNoThrottle,
+            binding.switchVinzzFastHints,
+            binding.switchVinzzDisableDither,
+            binding.switchVinzzStateCache,
+            binding.switchVinzzFboCache,
+            binding.switchVinzzSkipSmallDraws,
+            binding.switchVinzzBatchUniforms,
+            binding.switchVinzzMultidrawSodium,
+            binding.switchVinzzQcomTiling,
+            binding.switchVinzzFencePool,
+            binding.switchVinzzDisjointTimerOff,
+            binding.switchVinzzSmartInvalidate,
+            binding.switchVinzzColorInvalidate,
+            binding.switchVinzzSodiumMode,
+            binding.switchVinzzPersistentVbo,
+            binding.switchVinzzIndexReuse,
+            binding.switchVinzzTexCache,
+            binding.switchVinzzAstcPrefer,
+            binding.switchVinzzShaderCacheAggressive,
+            binding.switchVinzzGlslPragmaOpt,
+            binding.switchVinzzReducePrecision,
+            binding.switchVinzzMediumpFragment,
+            binding.switchVinzzEarlyZ,
+        ).forEach { it.setOnCheckedChangeListener(this) }
+    }
+
 }
