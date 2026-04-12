@@ -128,6 +128,7 @@ Please note, this action is &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorErro
     <string name="vinzz_index_reuse">Index Buffer Reuse Detection</string>
     <string name="vinzz_batch_uniforms_label">Batch Uniform Uploads + Location Cache</string>
     <string name="vinzz_early_z_label">Early Fragment Test (depth pre-pass hint)</string>
+    <string name="vinzz_lrz_label">LRZ Always-On (Adreno 650 hierarchical Z cull, boosts FPS)</string>
     <string name="vinzz_glsl_pragma">Shader Compiler Pragma (EXPERIMENTAL - may break Iris)</string>
     <string name="vinzz_reduce_precision_label">Reduce Shader Precision (may cause visual artifacts)</string>
     <string name="vinzz_mediump_fragment_label">mediump Fragment Shaders (faster but less accurate)</string>

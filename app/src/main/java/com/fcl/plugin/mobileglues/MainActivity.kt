@@ -464,6 +464,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_reduce_precision     -> config?.vinzzReducePrecision     = if (isChecked) 1 else 0
             R.id.switch_vinzz_mediump_fragment     -> config?.vinzzMediumpFragment     = if (isChecked) 1 else 0
             R.id.switch_vinzz_early_z              -> config?.vinzzEarlyZ              = if (isChecked) 1 else 0
+            R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
         }
     }
 
@@ -748,6 +749,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzReducePrecision.isChecked       = cfg.vinzzReducePrecision == 1
         binding.switchVinzzMediumpFragment.isChecked       = cfg.vinzzMediumpFragment == 1
         binding.switchVinzzEarlyZ.isChecked                = cfg.vinzzEarlyZ == 1
+        binding.switchVinzzLrz.isChecked                   = cfg.vinzzLrz == 1
 
         // Register semua ke checkedChangeListener
         listOf(
@@ -774,6 +776,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzReducePrecision,
             binding.switchVinzzMediumpFragment,
             binding.switchVinzzEarlyZ,
+            binding.switchVinzzLrz,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
 

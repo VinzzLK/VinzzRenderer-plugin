@@ -153,6 +153,11 @@
                 android:text="@string/vinzz_early_z_label" android:checked="true"
                 android:layout_marginBottom="4dp"/>
             <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_lrz"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/vinzz_lrz_label" android:checked="true"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switch_vinzz_skip_small_draws"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/vinzz_skip_small_draws"
