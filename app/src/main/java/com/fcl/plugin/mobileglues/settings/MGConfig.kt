@@ -82,6 +82,14 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzLrz: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVertexMediaump: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzInvariantStrip: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzPreciseStrip: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzFp16Varyings: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzGlslPragmaOpt: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzReducePrecision: Int = 0
@@ -155,6 +163,10 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_batch_uniforms" to vinzzBatchUniforms,
         "vinzz_early_z" to vinzzEarlyZ,
         "vinzz_lrz" to vinzzLrz,
+        "vinzz_vertex_mediump" to vinzzVertexMediaump,
+        "vinzz_invariant_strip" to vinzzInvariantStrip,
+        "vinzz_precise_strip" to vinzzPreciseStrip,
+        "vinzz_fp16_varyings" to vinzzFp16Varyings
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
@@ -212,6 +224,10 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzBatchUniforms = obj.int("vinzz_batch_uniforms", 1)
             vinzzEarlyZ = obj.int("vinzz_early_z", 1)
             vinzzLrz = obj.int("vinzz_lrz", 1)
+            vinzzVertexMediaump = obj.int("vinzz_vertex_mediump", 1)
+            vinzzInvariantStrip = obj.int("vinzz_invariant_strip", 1)
+            vinzzPreciseStrip = obj.int("vinzz_precise_strip", 1)
+            vinzzFp16Varyings = obj.int("vinzz_fp16_varyings", 0)
             vinzzGlslPragmaOpt = obj.int("vinzz_glsl_pragma_opt", 0)
             vinzzReducePrecision = obj.int("vinzz_reduce_precision", 0)
             vinzzMediumpFragment = obj.int("vinzz_mediump_fragment", 0)

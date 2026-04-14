@@ -465,6 +465,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_mediump_fragment     -> config?.vinzzMediumpFragment     = if (isChecked) 1 else 0
             R.id.switch_vinzz_early_z              -> config?.vinzzEarlyZ              = if (isChecked) 1 else 0
             R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediaump    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_invariant_strip   -> config?.vinzzInvariantStrip    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_precise_strip     -> config?.vinzzPreciseStrip      = if (isChecked) 1 else 0
+            R.id.switch_vinzz_fp16_varyings     -> config?.vinzzFp16Varyings      = if (isChecked) 1 else 0
         }
     }
 
@@ -750,6 +754,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzMediumpFragment.isChecked       = cfg.vinzzMediumpFragment == 1
         binding.switchVinzzEarlyZ.isChecked                = cfg.vinzzEarlyZ == 1
         binding.switchVinzzLrz.isChecked                   = cfg.vinzzLrz == 1
+        binding.switchVinzzVertexMediaump.isChecked   = cfg.vinzzVertexMediaump == 1
+        binding.switchVinzzInvariantStrip.isChecked   = cfg.vinzzInvariantStrip == 1
+        binding.switchVinzzPreciseStrip.isChecked     = cfg.vinzzPreciseStrip == 1
+        binding.switchVinzzFp16Varyings.isChecked     = cfg.vinzzFp16Varyings == 1
 
         // Register semua ke checkedChangeListener
         listOf(
@@ -777,6 +785,10 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzMediumpFragment,
             binding.switchVinzzEarlyZ,
             binding.switchVinzzLrz,
+            binding.switchVinzzVertexMediaump,
+            binding.switchVinzzInvariantStrip,
+            binding.switchVinzzPreciseStrip,
+            binding.switchVinzzFp16Varyings,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
 

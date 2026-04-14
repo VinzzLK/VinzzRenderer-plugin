@@ -158,6 +158,26 @@
                 android:text="@string/vinzz_lrz_label" android:checked="true"
                 android:layout_marginBottom="4dp"/>
             <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_vertex_mediump"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/vinzz_vertex_mediump_label" android:checked="true"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_invariant_strip"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/vinzz_invariant_strip_label" android:checked="true"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_precise_strip"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/vinzz_precise_strip_label" android:checked="true"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_fp16_varyings"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="@string/vinzz_fp16_varyings_label"
+                android:layout_marginBottom="4dp"/>
+            <com.google.android.material.materialswitch.MaterialSwitch
                 android:id="@+id/switch_vinzz_skip_small_draws"
                 android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="@string/vinzz_skip_small_draws"
