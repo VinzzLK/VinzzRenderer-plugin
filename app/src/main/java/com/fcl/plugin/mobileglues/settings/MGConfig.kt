@@ -166,7 +166,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_vertex_mediump" to vinzzVertexMediaump,
         "vinzz_invariant_strip" to vinzzInvariantStrip,
         "vinzz_precise_strip" to vinzzPreciseStrip,
-        "vinzz_fp16_varyings" to vinzzFp16Varyings
+        "vinzz_fp16_varyings" to vinzzFp16Varyings,
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
