@@ -754,7 +754,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzMediumpFragment.isChecked       = cfg.vinzzMediumpFragment == 1
         binding.switchVinzzEarlyZ.isChecked                = cfg.vinzzEarlyZ == 1
         binding.switchVinzzLrz.isChecked                   = cfg.vinzzLrz == 1
-        binding.switchVinzzVertexMediaump.isChecked   = cfg.vinzzVertexMediaump == 1
+        binding.switchVinzzVertexMediump.isChecked   = cfg.vinzzVertexMediaump == 1
         binding.switchVinzzInvariantStrip.isChecked   = cfg.vinzzInvariantStrip == 1
         binding.switchVinzzPreciseStrip.isChecked     = cfg.vinzzPreciseStrip == 1
         binding.switchVinzzFp16Varyings.isChecked     = cfg.vinzzFp16Varyings == 1
@@ -785,7 +785,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzMediumpFragment,
             binding.switchVinzzEarlyZ,
             binding.switchVinzzLrz,
-            binding.switchVinzzVertexMediaump,
+            binding.switchVinzzVertexMediump,
             binding.switchVinzzInvariantStrip,
             binding.switchVinzzPreciseStrip,
             binding.switchVinzzFp16Varyings,
