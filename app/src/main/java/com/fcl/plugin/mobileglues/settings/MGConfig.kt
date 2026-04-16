@@ -82,7 +82,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzLrz: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
-    var vinzzVertexMediaump: Int = 1
+    var vinzzVertexMediump: Int = 1  // FIX: was vinzzVertexMediaump (typo)
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzInvariantStrip: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
@@ -180,7 +180,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_batch_uniforms" to vinzzBatchUniforms,
         "vinzz_early_z" to vinzzEarlyZ,
         "vinzz_lrz" to vinzzLrz,
-        "vinzz_vertex_mediump" to vinzzVertexMediaump,
+        "vinzz_vertex_mediump" to vinzzVertexMediump,
         "vinzz_invariant_strip" to vinzzInvariantStrip,
         "vinzz_precise_strip" to vinzzPreciseStrip,
         "vinzz_fp16_varyings" to vinzzFp16Varyings,
@@ -191,7 +191,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_vulkan_disable_validation" to vinzzVulkanDisableValidation,
         "vinzz_vulkan_memory_budget" to vinzzVulkanMemoryBudget,
         "vinzz_vulkan_spirv_opt" to vinzzVulkanSpirvOpt,
-        "vinzz_vulkan_frame_overlap" to vinzzVulkanFrameOverlap
+        "vinzz_vulkan_frame_overlap" to vinzzVulkanFrameOverlap,  // FIX: missing comma
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
@@ -249,7 +249,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzBatchUniforms = obj.int("vinzz_batch_uniforms", 1)
             vinzzEarlyZ = obj.int("vinzz_early_z", 1)
             vinzzLrz = obj.int("vinzz_lrz", 1)
-            vinzzVertexMediaump = obj.int("vinzz_vertex_mediump", 1)
+            vinzzVertexMediump = obj.int("vinzz_vertex_mediump", 1)
             vinzzInvariantStrip = obj.int("vinzz_invariant_strip", 1)
             vinzzPreciseStrip = obj.int("vinzz_precise_strip", 1)
             vinzzFp16Varyings = obj.int("vinzz_fp16_varyings", 0)
