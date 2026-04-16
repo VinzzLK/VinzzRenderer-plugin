@@ -146,4 +146,17 @@ Please note, this action is &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorErro
     <string name="vinzz_section_shader">🎨 Shader Optimizations</string>
     <string name="vinzz_section_buffer">📦 Buffer Optimizations</string>
     <string name="vinzz_section_sync">⏱️ Sync Optimizations</string>
+
+    <!-- VulkanMod Mode -->
+    <string name="vinzz_section_vulkan">🌋 Vulkan Mode (VulkanMod)</string>
+    <string name="vinzz_vulkan_mode_desc">Aktifkan untuk VulkanMod. Otomatis matikan Sodium Mode. Tulis JVM flags untuk fix crash LWJGL di Android.</string>
+    <string name="vinzz_vulkan_mode_label">Vulkan Mode (VulkanMod optimized)</string>
+    <string name="vinzz_vulkan_lwjgl_patch_label">LWJGL Android Patch (fix NoSuchFieldError sun.misc.Unsafe)</string>
+    <string name="vinzz_vulkan_async_compute_label">Async Compute Queue (parallel GPU compute)</string>
+    <string name="vinzz_vulkan_vma_defrag_label">VMA Defragmentation (GPU memory compaction)</string>
+    <string name="vinzz_vulkan_disable_validation_label">Disable Validation Layers (remove debug overhead)</string>
+    <string name="vinzz_vulkan_memory_budget_label">EXT_memory_budget (accurate VRAM tracking)</string>
+    <string name="vinzz_vulkan_spirv_opt_label">SPIRV Optimizer (faster shader compile)</string>
+    <string name="vinzz_vulkan_frame_overlap_label">Frame Overlap (pipeline 2 frames, less stalls)</string>
+    <string name="vinzz_vulkan_jvmargs_written">✓ vulkan_jvmargs.txt ditulis ke /sdcard/MG/\nSalin flags ini ke Zalith Launcher → JVM Args</string>
 </resources>  

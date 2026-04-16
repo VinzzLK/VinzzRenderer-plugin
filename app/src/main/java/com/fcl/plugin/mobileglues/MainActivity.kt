@@ -454,7 +454,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_disjoint_timer_off   -> config?.vinzzDisjointTimerOff   = if (isChecked) 1 else 0
             R.id.switch_vinzz_smart_invalidate     -> config?.vinzzSmartInvalidate     = if (isChecked) 1 else 0
             R.id.switch_vinzz_color_invalidate     -> config?.vinzzColorInvalidate     = if (isChecked) 1 else 0
-            R.id.switch_vinzz_sodium_mode          -> config?.vinzzSodiumMode          = if (isChecked) 1 else 0
+            R.id.switch_vinzz_sodium_mode -> {
+                config?.vinzzSodiumMode = if (isChecked) 1 else 0
+                if (isChecked && (config?.vinzzVulkanMode ?: 0) == 1) {
+                    config?.vinzzVulkanMode = 0
+                    binding.switchVinzzVulkanMode.isChecked = false
+                    setVulkanSubOptionsVisible(false)
+                    writeVulkanJvmArgs()
+                }
+            }
             R.id.switch_vinzz_persistent_vbo       -> config?.vinzzPersistentVbo       = if (isChecked) 1 else 0
             R.id.switch_vinzz_index_reuse          -> config?.vinzzIndexReuse          = if (isChecked) 1 else 0
             R.id.switch_vinzz_tex_cache            -> config?.vinzzTexCache            = if (isChecked) 1 else 0
@@ -465,7 +473,31 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_mediump_fragment     -> config?.vinzzMediumpFragment     = if (isChecked) 1 else 0
             R.id.switch_vinzz_early_z              -> config?.vinzzEarlyZ              = if (isChecked) 1 else 0
             R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
-            R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediaump    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_mode -> {
+                config?.vinzzVulkanMode = if (isChecked) 1 else 0
+                setVulkanSubOptionsVisible(isChecked)
+                if (isChecked) {
+                    // Matikan Sodium Mode (mutual exclusivity)
+                    config?.vinzzSodiumMode = 0
+                    binding.switchVinzzSodiumMode.isChecked = false
+                    // Tulis JVM flags untuk LWJGL Android fix
+                    writeVulkanJvmArgs()
+                } else {
+                    writeVulkanJvmArgs() // hapus flags file
+                }
+            }
+            R.id.switch_vinzz_vulkan_lwjgl_patch -> {
+                config?.vinzzVulkanLwjglPatch = if (isChecked) 1 else 0
+                writeVulkanJvmArgs() // update flags file
+            }
+            R.id.switch_vinzz_vulkan_async_compute    -> config?.vinzzVulkanAsyncCompute    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_vma_defrag       -> config?.vinzzVulkanVmaDefrag       = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_disable_validation -> config?.vinzzVulkanDisableValidation = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_memory_budget    -> config?.vinzzVulkanMemoryBudget    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_spirv_opt        -> config?.vinzzVulkanSpirvOpt        = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vulkan_frame_overlap    -> config?.vinzzVulkanFrameOverlap    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
+            R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediump    = if (isChecked) 1 else 0
             R.id.switch_vinzz_invariant_strip   -> config?.vinzzInvariantStrip    = if (isChecked) 1 else 0
             R.id.switch_vinzz_precise_strip     -> config?.vinzzPreciseStrip      = if (isChecked) 1 else 0
             R.id.switch_vinzz_fp16_varyings     -> config?.vinzzFp16Varyings      = if (isChecked) 1 else 0
@@ -754,7 +786,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzMediumpFragment.isChecked       = cfg.vinzzMediumpFragment == 1
         binding.switchVinzzEarlyZ.isChecked                = cfg.vinzzEarlyZ == 1
         binding.switchVinzzLrz.isChecked                   = cfg.vinzzLrz == 1
-        binding.switchVinzzVertexMediump.isChecked   = cfg.vinzzVertexMediaump == 1
+        binding.switchVinzzVertexMediump.isChecked   = cfg.vinzzVertexMediump == 1
         binding.switchVinzzInvariantStrip.isChecked   = cfg.vinzzInvariantStrip == 1
         binding.switchVinzzPreciseStrip.isChecked     = cfg.vinzzPreciseStrip == 1
         binding.switchVinzzFp16Varyings.isChecked     = cfg.vinzzFp16Varyings == 1
@@ -791,5 +823,41 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzFp16Varyings,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
+
+    // ── Vulkan Mode: tulis JVM flags untuk fix LWJGL Android crash ──
+    // Fix: NoSuchFieldError: VkAndroidSurfaceCreateInfoKHR 'sun.misc.Unsafe UNSAFE'
+    // Root cause: LWJGL 3.3.x pakai reflection ke sun.misc.Unsafe tapi
+    //             Android Java 21 perlu explicit --add-opens
+    private fun writeVulkanJvmArgs() {
+        runCatching {
+            val mgDir = File(com.fcl.plugin.mobileglues.utils.Constants.MG_DIRECTORY)
+            mgDir.mkdirs()
+            val flagsFile = File(mgDir, "vulkan_jvmargs.txt")
+            val vulkanMode = config?.vinzzVulkanMode ?: 0
+            val lwjglPatch = config?.vinzzVulkanLwjglPatch ?: 1
+            if (vulkanMode == 1 && lwjglPatch == 1) {
+                flagsFile.writeText(
+                    "--add-opens java.base/sun.misc=ALL-UNNAMED\n" +
+                    "--add-opens java.base/java.nio=ALL-UNNAMED\n" +
+                    "--add-opens java.base/java.lang=ALL-UNNAMED\n" +
+                    "-Dorg.lwjgl.system.SharedLibraryExtractPath=/data/local/tmp\n" +
+                    "-Dorg.lwjgl.vulkan.libname=libvulkan.so\n"
+                )
+                android.widget.Toast.makeText(
+                    this,
+                    "✓ vulkan_jvmargs.txt ditulis ke /sdcard/MG/\nSalin flags ke Zalith: JVM Args",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            } else {
+                flagsFile.delete()
+            }
+        }
+    }
+
+    private fun setVulkanSubOptionsVisible(visible: Boolean) {
+        binding.layoutVulkanOptions.visibility =
+            if (visible) android.view.View.VISIBLE else android.view.View.GONE
+    }
+
 
 }

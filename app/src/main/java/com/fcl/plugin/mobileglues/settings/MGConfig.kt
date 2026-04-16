@@ -90,6 +90,23 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzFp16Varyings: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
+    // ===== VulkanMod Mode =====
+    var vinzzVulkanMode: Int = 0
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanLwjglPatch: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanAsyncCompute: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanVmaDefrag: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanDisableValidation: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanMemoryBudget: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanSpirvOpt: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzVulkanFrameOverlap: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzGlslPragmaOpt: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzReducePrecision: Int = 0
@@ -167,6 +184,14 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_invariant_strip" to vinzzInvariantStrip,
         "vinzz_precise_strip" to vinzzPreciseStrip,
         "vinzz_fp16_varyings" to vinzzFp16Varyings,
+        "vinzz_vulkan_mode" to vinzzVulkanMode,
+        "vinzz_vulkan_lwjgl_patch" to vinzzVulkanLwjglPatch,
+        "vinzz_vulkan_async_compute" to vinzzVulkanAsyncCompute,
+        "vinzz_vulkan_vma_defrag" to vinzzVulkanVmaDefrag,
+        "vinzz_vulkan_disable_validation" to vinzzVulkanDisableValidation,
+        "vinzz_vulkan_memory_budget" to vinzzVulkanMemoryBudget,
+        "vinzz_vulkan_spirv_opt" to vinzzVulkanSpirvOpt,
+        "vinzz_vulkan_frame_overlap" to vinzzVulkanFrameOverlap
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
@@ -228,6 +253,14 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzInvariantStrip = obj.int("vinzz_invariant_strip", 1)
             vinzzPreciseStrip = obj.int("vinzz_precise_strip", 1)
             vinzzFp16Varyings = obj.int("vinzz_fp16_varyings", 0)
+            vinzzVulkanMode = obj.int("vinzz_vulkan_mode", 0)
+            vinzzVulkanLwjglPatch = obj.int("vinzz_vulkan_lwjgl_patch", 1)
+            vinzzVulkanAsyncCompute = obj.int("vinzz_vulkan_async_compute", 1)
+            vinzzVulkanVmaDefrag = obj.int("vinzz_vulkan_vma_defrag", 1)
+            vinzzVulkanDisableValidation = obj.int("vinzz_vulkan_disable_validation", 1)
+            vinzzVulkanMemoryBudget = obj.int("vinzz_vulkan_memory_budget", 1)
+            vinzzVulkanSpirvOpt = obj.int("vinzz_vulkan_spirv_opt", 1)
+            vinzzVulkanFrameOverlap = obj.int("vinzz_vulkan_frame_overlap", 1)
             vinzzGlslPragmaOpt = obj.int("vinzz_glsl_pragma_opt", 0)
             vinzzReducePrecision = obj.int("vinzz_reduce_precision", 0)
             vinzzMediumpFragment = obj.int("vinzz_mediump_fragment", 0)

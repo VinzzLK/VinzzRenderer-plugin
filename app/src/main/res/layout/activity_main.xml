@@ -14,7 +14,6 @@
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
         app:elevation="4dp">
-
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
@@ -49,7 +48,6 @@
                 app:errorEnabled="true"
                 app:helperText="@string/option_glsl_cache_helper"
                 app:helperTextEnabled="true">
-
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input_max_glsl_cache_size"
                     android:layout_width="match_parent"
@@ -153,7 +151,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="@string/option_enable_fsr1"/>
 
-            <!-- ===== VINZZ SECTION: PERFORMANCE ===== -->
+            <!-- ===== VINZZ: PERFORMANCE ===== -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -271,7 +269,7 @@
                 android:layout_marginBottom="16dp"
                 android:text="@string/vinzz_index_reuse"/>
 
-            <!-- ===== VINZZ SECTION: TEXTURE ===== -->
+            <!-- ===== VINZZ: TEXTURE ===== -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -279,7 +277,6 @@
                 android:text="@string/vinzz_section_texture"
                 android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
-            <!-- Anisotropic Slider -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -310,7 +307,6 @@
                 android:gravity="center"
                 android:text="4x"/>
 
-            <!-- Mip Bias Slider -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -356,7 +352,7 @@
                 android:checked="true"
                 android:text="@string/vinzz_astc_prefer_label"/>
 
-            <!-- ===== VINZZ SECTION: SHADER ===== -->
+            <!-- ===== VINZZ: SHADER ===== -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -430,6 +426,94 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 android:text="@string/vinzz_fp16_varyings_label"/>
+
+            <!-- ===== VINZZ: VULKAN MODE ===== -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="4dp"
+                android:text="@string/vinzz_section_vulkan"
+                android:textAppearance="?attr/textAppearanceTitleMedium"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:alpha="0.7"
+                android:text="@string/vinzz_vulkan_mode_desc"
+                android:textAppearance="?attr/textAppearanceBodySmall"/>
+
+            <com.google.android.material.materialswitch.MaterialSwitch
+                android:id="@+id/switch_vinzz_vulkan_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="@string/vinzz_vulkan_mode_label"/>
+
+            <!-- Vulkan sub-options: visible hanya saat Vulkan Mode ON -->
+            <LinearLayout
+                android:id="@+id/layout_vulkan_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_lwjgl_patch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_lwjgl_patch_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_async_compute"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_async_compute_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_vma_defrag"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_vma_defrag_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_disable_validation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_disable_validation_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_memory_budget"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_memory_budget_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_spirv_opt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_spirv_opt_label"/>
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/switch_vinzz_vulkan_frame_overlap"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:checked="true"
+                    android:text="@string/vinzz_vulkan_frame_overlap_label"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
