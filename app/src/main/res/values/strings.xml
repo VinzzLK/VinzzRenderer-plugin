@@ -159,4 +159,17 @@ Please note, this action is &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorErro
     <string name="vinzz_vulkan_spirv_opt_label">SPIRV Optimizer (faster shader compile)</string>
     <string name="vinzz_vulkan_frame_overlap_label">Frame Overlap (pipeline 2 frames, less stalls)</string>
     <string name="vinzz_vulkan_jvmargs_written">✓ vulkan_jvmargs.txt ditulis ke /sdcard/MG/\nSalin flags ini ke Zalith Launcher → JVM Args</string>
+
+    <!-- VinzzRenderer New 5 Features -->
+    <string name="vinzz_section_new5">🚀 Advanced Rendering Features</string>
+    <string name="vinzz_buffer_streaming_label">Buffer Streaming (Persistent Buffer)</string>
+    <string name="vinzz_buffer_streaming_desc">GL_EXT_buffer_storage persistent map. Hapus re-upload vertex/index buffer tiap frame.</string>
+    <string name="vinzz_cpu_preprep_label">CPU Pre-Preparation Pipeline</string>
+    <string name="vinzz_cpu_preprep_desc">Sort draw call berdasarkan program+texture. Kurangi GPU state switch.</string>
+    <string name="vinzz_denoiser_label">Shader Denoiser Pass</string>
+    <string name="vinzz_denoiser_desc">A-Trous wavelet post-process. Hilangkan noise SSAO/volumetric/soft shadow.</string>
+    <string name="vinzz_async_shader_label">Async Shader Compile</string>
+    <string name="vinzz_async_shader_desc">GL_KHR_parallel_shader_compile. Compile shader background, tidak block main thread.</string>
+    <string name="vinzz_pipeline_cache_label">Pipeline Cache</string>
+    <string name="vinzz_pipeline_cache_desc">Simpan shader binary ke /sdcard/MG/pipeline_cache/. Load instan sesi berikutnya.</string>
 </resources>  

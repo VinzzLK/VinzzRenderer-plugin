@@ -496,6 +496,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_vulkan_memory_budget    -> config?.vinzzVulkanMemoryBudget    = if (isChecked) 1 else 0
             R.id.switch_vinzz_vulkan_spirv_opt        -> config?.vinzzVulkanSpirvOpt        = if (isChecked) 1 else 0
             R.id.switch_vinzz_vulkan_frame_overlap    -> config?.vinzzVulkanFrameOverlap    = if (isChecked) 1 else 0
+            R.id.switch_vinzz_buffer_streaming -> config?.vinzzBufferStreaming = if (isChecked) 1 else 0
+            R.id.switch_vinzz_cpu_preprep      -> config?.vinzzCpuPreprep      = if (isChecked) 1 else 0
+            R.id.switch_vinzz_denoiser         -> config?.vinzzDenoiser        = if (isChecked) 1 else 0
+            R.id.switch_vinzz_async_shader     -> config?.vinzzAsyncShader     = if (isChecked) 1 else 0
+            R.id.switch_vinzz_pipeline_cache   -> config?.vinzzPipelineCache   = if (isChecked) 1 else 0
             R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
             R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediump    = if (isChecked) 1 else 0
             R.id.switch_vinzz_invariant_strip   -> config?.vinzzInvariantStrip    = if (isChecked) 1 else 0
@@ -790,6 +795,12 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzInvariantStrip.isChecked   = cfg.vinzzInvariantStrip == 1
         binding.switchVinzzPreciseStrip.isChecked     = cfg.vinzzPreciseStrip == 1
         binding.switchVinzzFp16Varyings.isChecked     = cfg.vinzzFp16Varyings == 1
+        // ── New 5 Features ──
+        binding.switchVinzzBufferStreaming.isChecked = cfg.vinzzBufferStreaming == 1
+        binding.switchVinzzCpuPreprep.isChecked      = cfg.vinzzCpuPreprep      == 1
+        binding.switchVinzzDenoiser.isChecked        = cfg.vinzzDenoiser        == 1
+        binding.switchVinzzAsyncShader.isChecked     = cfg.vinzzAsyncShader     == 1
+        binding.switchVinzzPipelineCache.isChecked   = cfg.vinzzPipelineCache   == 1
 
         // Register semua ke checkedChangeListener
         listOf(
@@ -821,6 +832,11 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzInvariantStrip,
             binding.switchVinzzPreciseStrip,
             binding.switchVinzzFp16Varyings,
+            binding.switchVinzzBufferStreaming,
+            binding.switchVinzzCpuPreprep,
+            binding.switchVinzzDenoiser,
+            binding.switchVinzzAsyncShader,
+            binding.switchVinzzPipelineCache,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
 

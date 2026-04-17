@@ -107,6 +107,17 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzVulkanFrameOverlap: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
+    // ===== VinzzRenderer New 5 Features =====
+    var vinzzBufferStreaming: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzCpuPreprep: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzDenoiser: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzAsyncShader: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzPipelineCache: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzGlslPragmaOpt: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzReducePrecision: Int = 0
@@ -191,7 +202,12 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_vulkan_disable_validation" to vinzzVulkanDisableValidation,
         "vinzz_vulkan_memory_budget" to vinzzVulkanMemoryBudget,
         "vinzz_vulkan_spirv_opt" to vinzzVulkanSpirvOpt,
-        "vinzz_vulkan_frame_overlap" to vinzzVulkanFrameOverlap,  // FIX: missing comma
+        "vinzz_vulkan_frame_overlap" to vinzzVulkanFrameOverlap,
+        "vinzz_buffer_streaming" to vinzzBufferStreaming,
+        "vinzz_cpu_preprep"      to vinzzCpuPreprep,
+        "vinzz_denoiser"         to vinzzDenoiser,
+        "vinzz_async_shader"     to vinzzAsyncShader,
+        "vinzz_pipeline_cache"   to vinzzPipelineCache  // FIX: missing comma
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
@@ -261,6 +277,11 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzVulkanMemoryBudget = obj.int("vinzz_vulkan_memory_budget", 1)
             vinzzVulkanSpirvOpt = obj.int("vinzz_vulkan_spirv_opt", 1)
             vinzzVulkanFrameOverlap = obj.int("vinzz_vulkan_frame_overlap", 1)
+            vinzzBufferStreaming = obj.int("vinzz_buffer_streaming", 1)
+            vinzzCpuPreprep      = obj.int("vinzz_cpu_preprep", 1)
+            vinzzDenoiser        = obj.int("vinzz_denoiser", 1)
+            vinzzAsyncShader     = obj.int("vinzz_async_shader", 1)
+            vinzzPipelineCache   = obj.int("vinzz_pipeline_cache", 1)
             vinzzGlslPragmaOpt = obj.int("vinzz_glsl_pragma_opt", 0)
             vinzzReducePrecision = obj.int("vinzz_reduce_precision", 0)
             vinzzMediumpFragment = obj.int("vinzz_mediump_fragment", 0)
