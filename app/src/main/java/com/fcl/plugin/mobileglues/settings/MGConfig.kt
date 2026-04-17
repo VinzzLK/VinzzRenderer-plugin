@@ -207,7 +207,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_cpu_preprep"      to vinzzCpuPreprep,
         "vinzz_denoiser"         to vinzzDenoiser,
         "vinzz_async_shader"     to vinzzAsyncShader,
-        "vinzz_pipeline_cache"   to vinzzPipelineCache  // FIX: missing comma
+        "vinzz_pipeline_cache"   to vinzzPipelineCache, // FIX: missing comma
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
