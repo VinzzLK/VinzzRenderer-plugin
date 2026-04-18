@@ -1,0 +1,145 @@
+<resources xmlns:tools="http://schemas.android.com/tools">  
+    <string name="app_name">VinzzRender</string>  <string name="info_author" translatable="false">Vinzz (fork of MobileGlues by Swung, BZLZHH, Tungsten)</string>  
+<string name="info_copyright" translatable="false">GNU LGPL-2.1 License</string>  
+<string name="info_launcher" translatable="false">Fold Craft Launcher (>=1.2.0.5)\nZalith Launcher (>=1.4.0)\nPojav Glow·Worm (>=20250211)</string>  
+<string name="info_logo" translatable="false">Aou156</string>  
+
+<string name="view_version">Version: </string>  
+<string name="view_author">Developers: </string>  
+<string name="view_copyright">License: </string>  
+<string name="view_launcher">Compatible Launchers: </string>  
+<string name="view_logo">Logo By:</string>  
+
+<string name="open_options">Modify renderer settings</string>  
+
+<string name="menu_item_about">About</string>  
+
+<string name="option_glsl_cache">Max GLSL Cache Size (enter -1 to disable)</string>  
+<string name="option_glsl_cache_helper">Unit: Megabytes (MB)</string>  
+<string name="option_angle">Use ANGLE as OpenGL ES driver</string>  
+<string name="option_angle_disable_if_possible">Prefer Disabled</string>  
+<string name="option_angle_enable_if_possible">Prefer Enabled</string>  
+<string name="option_angle_disable">Disable</string>  
+<string name="option_angle_enable">Enable</string>  
+
+<string name="option_glsl_cache_error_invalid">Error: invalid number.</string>  
+<string name="option_glsl_cache_error_range">Error: number cannot be 0 or less than -1.</string>  
+
+<string name="option_no_error">OpenGL Error Setting</string>  
+<string name="option_no_error_auto">Auto</string>  
+<string name="option_no_error_enable">Do not ignore</string>  
+<string name="option_no_error_disable_pri">Ignore shader/program error</string>  
+<string name="option_no_error_disable_sec">Ignore shader/program/framebuffer error</string>  
+
+<string name="option_multidraw_mode">MultiDraw Emulation</string>  
+<string name="option_multidraw_mode_auto">Auto</string>  
+<string name="option_multidraw_mode_indirect">Prefer Indirect</string>  
+<string name="option_multidraw_mode_basevertex">Prefer BaseVertex</string>  
+<string name="option_multidraw_mode_multidraw_indirect">Prefer MultiDraw Indirect</string>  
+<string name="option_multidraw_mode_drawelements">Force DrawElements</string>  
+<string name="option_multidraw_mode_compute">Prefer Compute</string>  
+
+<string name="option_angle_clear_workaround">ANGLE Depth Clear Workaround</string>  
+<string name="option_angle_clear_workaround_disable">Disable</string>  
+<string name="option_angle_clear_workaround_enable_1">Enable workaround #1</string>  
+
+<string name="option_ext_cs">Enable Incomplete \&#x27;ARB_compute_shader\&#x27; Extension</string>  
+<string name="option_ext_timer_query">Disable Recommended \&#x27;timer_query\&#x27; Extension</string>  
+<string name="option_ext_direct_state_access">Enable Advanced \&#x27;direct_state_access\&#x27; Extension</string>  
+<string name="option_enable_fsr1" tools:ignore="Typos">(Experimental) Enable built-in FSR1</string>  
+
+<string name="option_custom_gl_version">Custom target OpenGL Version</string>  
+<string name="warning_enabling_custom_gl_version">&amp;lt;![CDATA[&amp;lt;b&amp;gt;&amp;lt;big&amp;gt;⚠️ Important Notice:&amp;lt;/big&amp;gt;&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+
+• Setting a custom OpenGL version may &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;cause game crashes or rendering issues — proceed with caution&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;!&amp;lt;br/&amp;gt;
+• If any issues occur, please &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;disable this feature&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt; first!&amp;lt;br/&amp;gt;
+• Once you enable this feature, we will &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;no longer accept&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt; any bug reports related to additional issues! Before reporting problems, please make sure to &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;disable this feature&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;!&amp;lt;br/&amp;gt;
+• For stability, &amp;lt;b&amp;gt;do not enable this feature&amp;lt;/b&amp;gt; unless absolutely necessary (e.g., mods requiring specific OpenGL versions)!]]&amp;gt;</string>
+
+<string name="dialog_positive">OK</string>  
+<string name="dialog_negative">Cancel</string>  
+<string name="dialog_github">GitHub Release</string>  
+<string name="dialog_sponsor">Sponsor</string>  
+
+<string name="dialog_info">App Info</string>  
+
+<string name="dialog_permission_title">Permission Required</string>  
+<string name="dialog_permission_msg">It looks like you denied the permission request. You must grant storage permission to modify the renderer settings.</string>  
+<string name="dialog_permission_msg_android_Q">Modifying rendering options requires \&#x27;All Files Access\&#x27; permission. Please grant this permission on the following screen to allow the app to access:\n%s\n\nNote: This is free software that runs completely offline. It has no network access and will never collect or leak your personal data.</string>  
+
+<string name="permission_failed">Permission denied</string>  
+
+<string name="dialog_title_warning">Warning</string>  
+<string name="warning_ext_cs_enable">Enabling the incomplete ARB_compute_shader extension may cause issues with some shaders and mods. Are you sure you want to continue?</string>  
+<string name="warning_adreno_740_angle">Enabling ANGLE on Adreno 740 devices is highly likely to cause severe rendering issues. Are you sure you want to continue?</string>  
+<string name="warning_enabling_angle_clear_workaround">Enabling the ANGLE Depth Clear Workaround fixes the issue of the handheld items being obscured in vanilla Minecraft 1.21.5+, but may cause performance degradation. Are you sure you want to continue?</string>  
+<string name="warning_fsr1_enable">Enabling the built-in FSR1 may cause image corruption on some drivers.\nIf your device is equipped with an Adreno GPU, please enable ANGLE to ensure correct rendering.\nIt is known that enabling this feature together with ANGLE can cause performance degradation, so please enable with caution.</string>  
+
+<string name="menu_item_remove">Remove VinzzRender related files</string>  
+<string name="remove_mg_files_message">&amp;lt;![CDATA[This action will completely delete all files associated with VinzzRender. This includes:&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+
+• &amp;lt;b&amp;gt;All configuration files:&amp;lt;/b&amp;gt; Any of your custom settings, preferences, and possible configuration files required for the application to run will be removed.&amp;lt;br/&amp;gt;
+• &amp;lt;b&amp;gt;Cache files:&amp;lt;/b&amp;gt; The GLSL cache generated by VinzzRender during runtime (used to speed up loading) will be cleared.&amp;lt;br/&amp;gt;
+• &amp;lt;b&amp;gt;Log files:&amp;lt;/b&amp;gt; Log files generated during the operation of VinzzRender will be deleted.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+Please note, this action is &amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;irreversible&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;. Once you click &quot;OK&quot;, all the files mentioned above will be permanently deleted and cannot be recovered. If you are going to use VinzzRender again in the future, you will need to reconfigure it.&amp;lt;br/&amp;gt;&amp;lt;br/&amp;gt;
+&amp;lt;b&amp;gt;&amp;lt;font color=&quot;@colorError&quot;&amp;gt;Are you sure you want to continue?&amp;lt;/font&amp;gt;&amp;lt;/b&amp;gt;]]&amp;gt;</string>
+<string name="ok">OK</string>
+<string name="ok_with_countdown">OK (%d s)</string>
+<string name="removing_mobileglues">Removing VinzzRender…</string>
+<string name="remove_failed">Remove failed: %s</string>
+<string name="remove_complete_title">Removal Complete</string>
+<string name="remove_complete_message">VinzzRender related files have been completely removed.\nIf you need to completely remove VinzzRender from your device, please uninstall this software.</string>
+<string name="exit">Exit</string>
+<string name="info_mg_info">VinzzRender Info</string>
+<string name="button_view_gl_info">Check</string>
+<string name="dialog_mg_gl_info_title">VinzzRender Info</string>
+<string name="dismiss">Dismiss</string>
+
+<!-- VinzzRenderer 25+ Optimizations UI -->  
+<string name="vinzz_section_performance">⚡ Performance Mode</string>  
+<string name="vinzz_sodium_mode">Sodium Mode (Iris + Sodium compatible)</string>  
+<string name="vinzz_vulkan_mode">Vulkan Mode (VulkanMod optimized)</string>  
+<string name="vinzz_no_throttle">No Thermal Throttle (Max FPS, may get hot)</string>  
+<string name="vinzz_fast_hints">GL Fast Hints (GL_FASTEST everywhere)</string>  
+<string name="vinzz_disable_dither">Disable Dithering (unnecessary on Adreno)</string>  
+<string name="vinzz_anisotropic">Anisotropic Filtering Level</string>  
+<string name="vinzz_anisotropic_helper">1x = Off, 4x = Balanced, 16x = Max Quality</string>  
+<string name="vinzz_state_cache">GL State Cache (skip redundant state changes)</string>  
+<string name="vinzz_smart_invalidate">Smart Depth Invalidation (tiled GPU speedup)</string>  
+<string name="vinzz_qcom_tiling">QCOM Tiled Rendering (Adreno 650 exclusive)</string>  
+<string name="vinzz_shader_cache">Aggressive Shader Cache (faster reload)</string>  
+<string name="vinzz_pragma_opt">Shader Compiler Optimization Hints</string>  
+<string name="vinzz_sodium_multidraw">Sodium MultiDraw Tuning</string>  
+<string name="vinzz_preset">Performance Preset</string>  
+<string name="vinzz_preset_balanced">Balanced</string>  
+<string name="vinzz_preset_performance">Performance</string>  
+<string name="vinzz_preset_ultra">Ultra Performance (No Throttle)</string>  
+<string name="vinzz_section_advanced">🔧 Advanced (Adreno 650)</string>
+
+    <string name="vinzz_skip_small_draws">Skip Tiny Draws (skip &amp;lt;6 vertex calls)</string>
+    <string name="vinzz_fbo_cache">FBO Status Cache (skip redundant FBO checks)</string>
+    <string name="vinzz_color_invalidate">Color Buffer Invalidation (aggressive, may glitch)</string>
+    <string name="vinzz_multidraw_sodium">Sodium MultiDraw Tuning</string>
+    <string name="vinzz_fence_pool">Fence Sync Pool (reuse sync objects)</string>
+    <string name="vinzz_disjoint_timer_off">Disable Disjoint Timer (saves GPU overhead)</string>
+    <string name="vinzz_sodium_mode_label">Sodium Mode (Iris+Sodium compatible)</string>
+    <string name="vinzz_tex_cache_label">Texture Bind Cache (skip redundant tex binds)</string>
+    <string name="vinzz_persistent_vbo">Persistent VBO Mapping</string>
+    <string name="vinzz_index_reuse">Index Buffer Reuse Detection</string>
+    <string name="vinzz_batch_uniforms_label">Batch Uniform Uploads + Location Cache</string>
+    <string name="vinzz_early_z_label">Early Fragment Test (depth pre-pass hint)</string>
+    <string name="vinzz_lrz_label">LRZ Always-On (Adreno 650 hierarchical Z cull, boosts FPS)</string>
+    <string name="vinzz_glsl_pragma">Shader Compiler Pragma (EXPERIMENTAL - may break Iris)</string>
+    <string name="vinzz_reduce_precision_label">Reduce Shader Precision (may cause visual artifacts)</string>
+    <string name="vinzz_mediump_fragment_label">mediump Fragment Shaders (faster but less accurate)</string>
+    <string name="vinzz_astc_prefer_label">Prefer ASTC Compression</string>
+    <string name="vinzz_anisotropic_label">Anisotropic Filtering</string>
+    <string name="vinzz_anisotropic_hint">1x=Off, 2x, 4x, 8x, 16x (Adreno 650 max=16x)</string>
+    <string name="vinzz_mip_bias_label">Mipmap LOD Bias</string>
+    <string name="vinzz_mip_bias_hint">Negative=sharper, Positive=blurrier. Default: -0.5</string>
+    <string name="vinzz_section_perf2">⚡ VinzzRenderer Optimizations</string>
+    <string name="vinzz_section_texture">🖼️ Texture Optimizations</string>
+    <string name="vinzz_section_shader">🎨 Shader Optimizations</string>
+    <string name="vinzz_section_buffer">📦 Buffer Optimizations</string>
+    <string name="vinzz_section_sync">⏱️ Sync Optimizations</string>
+</resources>  

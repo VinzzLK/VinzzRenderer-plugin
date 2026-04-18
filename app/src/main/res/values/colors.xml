@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- VinzzRenderer Neon Blue Theme -->
-    <color name="vinzz_bg">#FF090E18</color>
-    <color name="vinzz_bg_card">#FF0D1421</color>
-    <color name="vinzz_blue">#FF00AAFF</color>
-    <color name="vinzz_blue_dark">#FF0055AA</color>
-    <color name="vinzz_blue_glow">#3300AAFF</color>
-    <color name="vinzz_border">#FF1A3A6C</color>
-    <color name="vinzz_text">#FFE0F0FF</color>
-    <color name="vinzz_text_dim">#FF7A9EC0</color>
-    <color name="vinzz_accent">#FF00DDFF</color>
+    <!-- VinzzRenderer Cyan-Black Theme -->
+    <color name="vinzz_bg">#FF000000</color>
+    <color name="vinzz_bg_card">#FF0A0A0A</color>
+    <color name="vinzz_blue">#FF2EC9D9</color>
+    <color name="vinzz_blue_dark">#FF1A8090</color>
+    <color name="vinzz_blue_glow">#332EC9D9</color>
+    <color name="vinzz_border">#FF1A3040</color>
+    <color name="vinzz_text">#FFFFFFFF</color>
+    <color name="vinzz_text_dim">#FF7799BB</color>
+    <color name="vinzz_accent">#FF2EC9D9</color>
     <color name="vinzz_error">#FFFF4444</color>
-    <color name="vinzz_surface">#FF111B2E</color>
+    <color name="vinzz_surface">#FF0A0A0A</color>
+    <color name="ic_launcher_background">#FF000000</color>
     <!-- Legacy -->
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>

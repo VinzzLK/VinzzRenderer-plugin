@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.MobileGlues" parent="Theme.Material3.Dark.NoActionBar">
+    <style name="Theme.MobileGlues" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/vinzz_blue</item>
         <item name="colorPrimaryVariant">@color/vinzz_blue_dark</item>
+        <item name="colorPrimaryContainer">#FF1A5060</item>
         <item name="colorSecondary">@color/vinzz_accent</item>
+        <item name="colorTertiary">@color/vinzz_accent</item>
         <item name="colorSurface">@color/vinzz_surface</item>
         <item name="colorError">@color/vinzz_error</item>
+        <item name="colorOnSurface">@color/vinzz_text</item>
+        <item name="colorOnBackground">@color/vinzz_text</item>
+        <item name="colorBackground">@color/vinzz_bg</item>
         <item name="android:colorBackground">@color/vinzz_bg</item>
         <item name="android:windowBackground">@color/vinzz_bg</item>
+        <item name="android:statusBarColor">@color/vinzz_bg</item>
+        <item name="android:navigationBarColor">@color/vinzz_bg</item>
+        <item name="android:windowLightStatusBar">false</item>
         <item name="colorOnPrimary">@color/vinzz_bg</item>
-        <item name="colorOnSurface">@color/vinzz_text</item>
+        <item name="materialSwitchStyle">@style/VinzzSwitchStyle</item>
+    </style>
+
+    <style name="VinzzSwitchStyle" parent="Widget.Material3.CompoundButton.MaterialSwitch">
+        <item name="colorPrimary">@color/vinzz_blue</item>
     </style>
 
     <style name="VinzzCard" parent="Widget.Material3.CardView.Elevated">
@@ -17,6 +29,6 @@
         <item name="strokeColor">@color/vinzz_border</item>
         <item name="strokeWidth">1dp</item>
         <item name="cardElevation">0dp</item>
-        <item name="cardCornerRadius">12dp</item>
+        <item name="cardCornerRadius">10dp</item>
     </style>
 </resources>
