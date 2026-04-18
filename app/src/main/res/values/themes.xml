@@ -9,14 +9,12 @@
         <item name="colorSurface">@color/vinzz_surface</item>
         <item name="colorError">@color/vinzz_error</item>
         <item name="colorOnSurface">@color/vinzz_text</item>
-        <item name="colorOnBackground">@color/vinzz_text</item>
-        <item name="colorBackground">@color/vinzz_bg</item>
+        <item name="colorOnPrimary">@color/vinzz_bg</item>
         <item name="android:colorBackground">@color/vinzz_bg</item>
         <item name="android:windowBackground">@color/vinzz_bg</item>
         <item name="android:statusBarColor">@color/vinzz_bg</item>
         <item name="android:navigationBarColor">@color/vinzz_bg</item>
         <item name="android:windowLightStatusBar">false</item>
-        <item name="colorOnPrimary">@color/vinzz_bg</item>
         <item name="materialSwitchStyle">@style/VinzzSwitchStyle</item>
     </style>
 
