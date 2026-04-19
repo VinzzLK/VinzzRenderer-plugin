@@ -473,7 +473,6 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_mediump_fragment     -> config?.vinzzMediumpFragment     = if (isChecked) 1 else 0
             R.id.switch_vinzz_early_z              -> config?.vinzzEarlyZ              = if (isChecked) 1 else 0
             R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
-            
             R.id.switch_vinzz_vulkan_mode -> {
                 config?.vinzzVulkanMode = if (isChecked) 1 else 0
                 setVulkanSubOptionsVisible(isChecked)
@@ -502,7 +501,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_denoiser         -> config?.vinzzDenoiser        = if (isChecked) 1 else 0
             R.id.switch_vinzz_async_shader     -> config?.vinzzAsyncShader     = if (isChecked) 1 else 0
             R.id.switch_vinzz_pipeline_cache   -> config?.vinzzPipelineCache   = if (isChecked) 1 else 0
-            
+            R.id.switch_vinzz_lrz                  -> config?.vinzzLrz                 = if (isChecked) 1 else 0
             R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediump    = if (isChecked) 1 else 0
             R.id.switch_vinzz_invariant_strip   -> config?.vinzzInvariantStrip    = if (isChecked) 1 else 0
             R.id.switch_vinzz_precise_strip     -> config?.vinzzPreciseStrip      = if (isChecked) 1 else 0
