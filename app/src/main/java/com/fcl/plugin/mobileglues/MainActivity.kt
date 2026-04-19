@@ -101,6 +101,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     // ---- 生命周期 ----
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        CrashLogger.install(this)  // VinzzRenderer crash logger
         enableEdgeToEdge()
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.isNavigationBarContrastEnforced = false
@@ -742,6 +743,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
     // ──────────────────────────────────────────────────────
     private fun setupVinzzSwitches() {
         val cfg = config ?: return
+        try {
 
         // ── Performance ──
         binding.switchVinzzNoThrottle.isChecked        = cfg.vinzzNoThrottle == 1
@@ -769,7 +771,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         val anisoSliderVal = when (cfg.vinzzAnisotropicLevel) {
             1  -> 1f; 2 -> 2f; 4 -> 3f; 8 -> 4f; 16 -> 5f; else -> 3f
         }
-        binding.sliderAnisotropic.value = anisoSliderVal
+        binding.sliderAnisotropic.value = anisoSliderVal.coerceIn(1f, 5f)
         binding.textAnisotropicValue.text = "${cfg.vinzzAnisotropicLevel}x"
         binding.sliderAnisotropic.addOnChangeListener { _, value, fromUser ->
             if (!fromUser) return@addOnChangeListener
@@ -779,7 +781,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         }
 
         // Mip bias slider: stored as x10, so -5 = -0.5
-        binding.sliderMipBias.value = cfg.vinzzMipBiasX10.toFloat()
+        binding.sliderMipBias.value = cfg.vinzzMipBiasX10.toFloat().coerceIn(-10f, 10f)
         binding.textMipBiasValue.text = "%.1f".format(cfg.vinzzMipBiasX10 / 10.0)
         binding.sliderMipBias.addOnChangeListener { _, value, fromUser ->
             if (!fromUser) return@addOnChangeListener
@@ -853,6 +855,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzVulkanSpirvOpt,
             binding.switchVinzzVulkanFrameOverlap,
         ).forEach { it.setOnCheckedChangeListener(this) }
+        } catch (e: Exception) {
+            // VinzzRenderer: catch any NPE/IllegalStateException in switch setup
+            android.util.Log.e("VinzzRenderer", "setupVinzzSwitches crash", e)
+            try {
+                val logDir = getExternalFilesDir(null) ?: filesDir
+                val f = java.io.File(logDir, "crash.txt")
+                f.appendText("[setupVinzzSwitches] ${e}\n${e.stackTraceToString()}\n\n")
+            } catch (_: Exception) {}
+        }
     }
 
     // ── Vulkan Mode: tulis JVM flags untuk fix LWJGL Android crash ──
