@@ -2846,8 +2846,7 @@
                     android:checked="true"/>
             </LinearLayout>
 
-        </LinearLayout>
-
+        
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -2876,7 +2875,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Skip heavy inject for complex shaders. Prevents shader compile crash."
+                        android:text="Skip heavy inject for complex shaders."
                         android:textColor="#7799BB"
                         android:textSize="11sp"
                         android:layout_marginTop="2dp"/>
@@ -2922,7 +2921,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Never modify compute shaders. Fixes Iris deferred/compute errors."
+                        android:text="Never modify compute shaders. Fixes Iris deferred errors."
                         android:textColor="#7799BB"
                         android:textSize="11sp"
                         android:layout_marginTop="2dp"/>
@@ -2939,6 +2938,9 @@
                     android:layout_height="wrap_content"
                     android:checked="true"/>
             </LinearLayout>
+
+        </LinearLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
