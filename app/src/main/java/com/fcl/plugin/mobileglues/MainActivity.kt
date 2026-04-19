@@ -844,6 +844,14 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzPipelineCache,
             binding.switchVinzzShaderComplexityGate,
             binding.switchVinzzComputeProtect,
+            binding.switchVinzzVulkanMode,
+            binding.switchVinzzVulkanLwjglPatch,
+            binding.switchVinzzVulkanAsyncCompute,
+            binding.switchVinzzVulkanVmaDefrag,
+            binding.switchVinzzVulkanDisableValidation,
+            binding.switchVinzzVulkanMemoryBudget,
+            binding.switchVinzzVulkanSpirvOpt,
+            binding.switchVinzzVulkanFrameOverlap,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
 
