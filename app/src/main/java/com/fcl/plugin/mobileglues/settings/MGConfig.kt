@@ -118,6 +118,12 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzPipelineCache: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
+    // ===== Shader Protection =====
+    var vinzzShaderComplexityGate: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzComputeProtect: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+
     var vinzzGlslPragmaOpt: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzReducePrecision: Int = 0
@@ -207,7 +213,9 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_cpu_preprep"      to vinzzCpuPreprep,
         "vinzz_denoiser"         to vinzzDenoiser,
         "vinzz_async_shader"     to vinzzAsyncShader,
-        "vinzz_pipeline_cache"   to vinzzPipelineCache, // FIX: missing comma
+        "vinzz_pipeline_cache"   to vinzzPipelineCache,
+        "vinzz_shader_complexity_gate" to vinzzShaderComplexityGate,
+        "vinzz_compute_protect"         to vinzzComputeProtect, // FIX: missing comma
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
         "vinzz_mediump_fragment" to vinzzMediumpFragment,
@@ -282,6 +290,8 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzDenoiser        = obj.int("vinzz_denoiser", 1)
             vinzzAsyncShader     = obj.int("vinzz_async_shader", 1)
             vinzzPipelineCache   = obj.int("vinzz_pipeline_cache", 1)
+            vinzzShaderComplexityGate = obj.int("vinzz_shader_complexity_gate", 1)
+            vinzzComputeProtect        = obj.int("vinzz_compute_protect", 1)
             vinzzGlslPragmaOpt = obj.int("vinzz_glsl_pragma_opt", 0)
             vinzzReducePrecision = obj.int("vinzz_reduce_precision", 0)
             vinzzMediumpFragment = obj.int("vinzz_mediump_fragment", 0)

@@ -502,6 +502,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_denoiser         -> config?.vinzzDenoiser        = if (isChecked) 1 else 0
             R.id.switch_vinzz_async_shader     -> config?.vinzzAsyncShader     = if (isChecked) 1 else 0
             R.id.switch_vinzz_pipeline_cache   -> config?.vinzzPipelineCache   = if (isChecked) 1 else 0
+            R.id.switch_vinzz_shader_complexity_gate -> config?.vinzzShaderComplexityGate = if (isChecked) 1 else 0
+            R.id.switch_vinzz_compute_protect        -> config?.vinzzComputeProtect        = if (isChecked) 1 else 0
             
             R.id.switch_vinzz_vertex_mediump    -> config?.vinzzVertexMediump    = if (isChecked) 1 else 0
             R.id.switch_vinzz_invariant_strip   -> config?.vinzzInvariantStrip    = if (isChecked) 1 else 0
@@ -802,6 +804,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzDenoiser.isChecked        = cfg.vinzzDenoiser        == 1
         binding.switchVinzzAsyncShader.isChecked     = cfg.vinzzAsyncShader     == 1
         binding.switchVinzzPipelineCache.isChecked   = cfg.vinzzPipelineCache   == 1
+        binding.switchVinzzShaderComplexityGate.isChecked = cfg.vinzzShaderComplexityGate == 1
+        binding.switchVinzzComputeProtect.isChecked        = cfg.vinzzComputeProtect        == 1
 
         // Register semua ke checkedChangeListener
         listOf(
@@ -838,6 +842,8 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzDenoiser,
             binding.switchVinzzAsyncShader,
             binding.switchVinzzPipelineCache,
+            binding.switchVinzzShaderComplexityGate,
+            binding.switchVinzzComputeProtect,
         ).forEach { it.setOnCheckedChangeListener(this) }
     }
 
