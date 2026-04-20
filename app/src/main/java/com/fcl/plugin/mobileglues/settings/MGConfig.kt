@@ -20,7 +20,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var enableExtTimerQuery: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
-    var enableExtComputeShader: Int = 0
+    var enableExtComputeShader: Int = 1  // VinzzFix: ON untuk Iris compute shaders
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var enableExtDirectStateAccess: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
