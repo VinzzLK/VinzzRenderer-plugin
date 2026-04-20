@@ -771,7 +771,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         val anisoSliderVal = when (cfg.vinzzAnisotropicLevel) {
             1  -> 1f; 2 -> 2f; 4 -> 3f; 8 -> 4f; 16 -> 5f; else -> 3f
         }
-        binding.sliderAnisotropic.value = anisoSliderVal.coerceIn(1f, 5f)
+        binding.sliderAnisotropic.value = anisoSliderVal.coerceIn(1f, 5f).coerceIn(1f, 5f)
         binding.textAnisotropicValue.text = "${cfg.vinzzAnisotropicLevel}x"
         binding.sliderAnisotropic.addOnChangeListener { _, value, fromUser ->
             if (!fromUser) return@addOnChangeListener
@@ -781,7 +781,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         }
 
         // Mip bias slider: stored as x10, so -5 = -0.5
-        binding.sliderMipBias.value = cfg.vinzzMipBiasX10.toFloat().coerceIn(-10f, 10f)
+        binding.sliderMipBias.value = cfg.vinzzMipBiasX10.toFloat().coerceIn(-10f, 10f).coerceIn(-10f, 10f)
         binding.textMipBiasValue.text = "%.1f".format(cfg.vinzzMipBiasX10 / 10.0)
         binding.sliderMipBias.addOnChangeListener { _, value, fromUser ->
             if (!fromUser) return@addOnChangeListener
