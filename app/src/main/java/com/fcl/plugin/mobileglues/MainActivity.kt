@@ -503,6 +503,15 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_denoiser         -> config?.vinzzDenoiser        = if (isChecked) 1 else 0
             R.id.switch_vinzz_async_shader     -> config?.vinzzAsyncShader     = if (isChecked) 1 else 0
             R.id.switch_vinzz_pipeline_cache   -> config?.vinzzPipelineCache   = if (isChecked) 1 else 0
+            R.id.switch_vinzz_distant_horizons_support -> {
+                config?.vinzzDistantHorizonsSupport = if (isChecked) 1 else 0
+                // DH Support: aktifkan compute shader + matikan depth invalidation
+                if (isChecked) {
+                    config?.enableExtComputeShader = 1
+                    config?.vinzzSmartInvalidate   = 0
+                    binding.switchVinzzSmartInvalidate.isChecked = false
+                }
+            }
             R.id.switch_vinzz_shader_complexity_gate -> config?.vinzzShaderComplexityGate = if (isChecked) 1 else 0
             R.id.switch_vinzz_compute_protect        -> config?.vinzzComputeProtect        = if (isChecked) 1 else 0
             
@@ -806,6 +815,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzDenoiser.isChecked        = cfg.vinzzDenoiser        == 1
         binding.switchVinzzAsyncShader.isChecked     = cfg.vinzzAsyncShader     == 1
         binding.switchVinzzPipelineCache.isChecked   = cfg.vinzzPipelineCache   == 1
+        runCatching { binding.switchVinzzDistantHorizonsSupport.isChecked = cfg.vinzzDistantHorizonsSupport == 1 }
         binding.switchVinzzShaderComplexityGate.isChecked = cfg.vinzzShaderComplexityGate == 1
         binding.switchVinzzComputeProtect.isChecked        = cfg.vinzzComputeProtect        == 1
 
@@ -854,6 +864,7 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzVulkanMemoryBudget,
             binding.switchVinzzVulkanSpirvOpt,
             binding.switchVinzzVulkanFrameOverlap,
+            binding.switchVinzzDistantHorizonsSupport,
         ).forEach { it.setOnCheckedChangeListener(this) }
         } catch (e: Exception) {
             // VinzzRenderer: catch any NPE/IllegalStateException in switch setup
