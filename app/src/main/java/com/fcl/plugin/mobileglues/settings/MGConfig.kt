@@ -54,7 +54,7 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzFboCache: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
-    var vinzzSmartInvalidate: Int = 1
+    var vinzzSmartInvalidate: Int = 0  // VinzzFix: OFF default
         set(value) { if (field != value) { field = value; saveIfReady() } }
     var vinzzColorInvalidate: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
