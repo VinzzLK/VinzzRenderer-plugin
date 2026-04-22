@@ -503,6 +503,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             R.id.switch_vinzz_denoiser         -> config?.vinzzDenoiser        = if (isChecked) 1 else 0
             R.id.switch_vinzz_async_shader     -> config?.vinzzAsyncShader     = if (isChecked) 1 else 0
             R.id.switch_vinzz_pipeline_cache   -> config?.vinzzPipelineCache   = if (isChecked) 1 else 0
+            R.id.switch_vinzz_persistent_binary_cache -> config?.vinzzPersistentBinaryCache = if (isChecked) 1 else 0
+            R.id.switch_vinzz_precision_guard -> config?.vinzzPrecisionGuard = if (isChecked) 1 else 0
+            R.id.switch_vinzz_dead_code_elim -> config?.vinzzDeadCodeElim = if (isChecked) 1 else 0
+            R.id.switch_vinzz_uniform_batching -> config?.vinzzUniformBatching = if (isChecked) 1 else 0
+            R.id.switch_vinzz_texture_norm -> config?.vinzzTextureNorm = if (isChecked) 1 else 0
+            R.id.switch_vinzz_gmem_resolve_opt -> config?.vinzzGmemResolveOpt = if (isChecked) 1 else 0
+            R.id.switch_vinzz_subgroup_opt -> config?.vinzzSubgroupOpt = if (isChecked) 1 else 0
             R.id.switch_vinzz_distant_horizons_support -> {
                 config?.vinzzDistantHorizonsSupport = if (isChecked) 1 else 0
                 // DH Support: aktifkan compute shader + matikan depth invalidation
@@ -815,6 +822,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
         binding.switchVinzzDenoiser.isChecked        = cfg.vinzzDenoiser        == 1
         binding.switchVinzzAsyncShader.isChecked     = cfg.vinzzAsyncShader     == 1
         binding.switchVinzzPipelineCache.isChecked   = cfg.vinzzPipelineCache   == 1
+        runCatching { binding.switchVinzzPersistentBinaryCache.isChecked = cfg.vinzzPersistentBinaryCache == 1 }
+        runCatching { binding.switchVinzzPrecisionGuard.isChecked = cfg.vinzzPrecisionGuard == 1 }
+        runCatching { binding.switchVinzzDeadCodeElim.isChecked = cfg.vinzzDeadCodeElim == 1 }
+        runCatching { binding.switchVinzzUniformBatching.isChecked = cfg.vinzzUniformBatching == 1 }
+        runCatching { binding.switchVinzzTextureNorm.isChecked = cfg.vinzzTextureNorm == 1 }
+        runCatching { binding.switchVinzzGmemResolveOpt.isChecked = cfg.vinzzGmemResolveOpt == 1 }
+        runCatching { binding.switchVinzzSubgroupOpt.isChecked = cfg.vinzzSubgroupOpt == 1 }
         runCatching { binding.switchVinzzDistantHorizonsSupport.isChecked = cfg.vinzzDistantHorizonsSupport == 1 }
         binding.switchVinzzShaderComplexityGate.isChecked = cfg.vinzzShaderComplexityGate == 1
         binding.switchVinzzComputeProtect.isChecked        = cfg.vinzzComputeProtect        == 1
@@ -865,6 +879,13 @@ class MainActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener,
             binding.switchVinzzVulkanSpirvOpt,
             binding.switchVinzzVulkanFrameOverlap,
             binding.switchVinzzDistantHorizonsSupport,
+            binding.switchVinzzPersistentBinaryCache,
+            binding.switchVinzzPrecisionGuard,
+            binding.switchVinzzDeadCodeElim,
+            binding.switchVinzzUniformBatching,
+            binding.switchVinzzTextureNorm,
+            binding.switchVinzzGmemResolveOpt,
+            binding.switchVinzzSubgroupOpt,
         ).forEach { it.setOnCheckedChangeListener(this) }
         } catch (e: Exception) {
             // VinzzRenderer: catch any NPE/IllegalStateException in switch setup

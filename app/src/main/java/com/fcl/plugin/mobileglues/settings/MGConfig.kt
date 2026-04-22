@@ -124,6 +124,22 @@ class MGConfig private constructor(val context: Context, private var isInitializ
     var vinzzComputeProtect: Int = 1
         set(value) { if (field != value) { field = value; saveIfReady() } }
 
+    // ===== Shader Optimization Features =====
+    var vinzzPersistentBinaryCache: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzPrecisionGuard: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzDeadCodeElim: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzUniformBatching: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzTextureNorm: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzGmemResolveOpt: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+    var vinzzSubgroupOpt: Int = 1
+        set(value) { if (field != value) { field = value; saveIfReady() } }
+
     // ===== Distant Horizons Support =====
     var vinzzDistantHorizonsSupport: Int = 0
         set(value) { if (field != value) { field = value; saveIfReady() } }
@@ -220,6 +236,13 @@ class MGConfig private constructor(val context: Context, private var isInitializ
         "vinzz_pipeline_cache"   to vinzzPipelineCache,
         "vinzz_shader_complexity_gate" to vinzzShaderComplexityGate,
         "vinzz_compute_protect"         to vinzzComputeProtect, // FIX: missing comma
+        "vinzz_persistent_binary_cache" to vinzzPersistentBinaryCache,
+        "vinzz_precision_guard"          to vinzzPrecisionGuard,
+        "vinzz_dead_code_elim"           to vinzzDeadCodeElim,
+        "vinzz_uniform_batching"         to vinzzUniformBatching,
+        "vinzz_texture_norm"             to vinzzTextureNorm,
+        "vinzz_gmem_resolve_opt"         to vinzzGmemResolveOpt,
+        "vinzz_subgroup_opt"             to vinzzSubgroupOpt,
         "vinzz_distant_horizons_support" to vinzzDistantHorizonsSupport,
         "vinzz_glsl_pragma_opt" to vinzzGlslPragmaOpt,
         "vinzz_reduce_precision" to vinzzReducePrecision,
@@ -297,6 +320,13 @@ class MGConfig private constructor(val context: Context, private var isInitializ
             vinzzPipelineCache   = obj.int("vinzz_pipeline_cache", 1)
             vinzzShaderComplexityGate = obj.int("vinzz_shader_complexity_gate", 1)
             vinzzComputeProtect        = obj.int("vinzz_compute_protect", 1)
+            vinzzPersistentBinaryCache = obj.int("vinzz_persistent_binary_cache", 1)
+            vinzzPrecisionGuard        = obj.int("vinzz_precision_guard", 1)
+            vinzzDeadCodeElim          = obj.int("vinzz_dead_code_elim", 1)
+            vinzzUniformBatching       = obj.int("vinzz_uniform_batching", 1)
+            vinzzTextureNorm           = obj.int("vinzz_texture_norm", 1)
+            vinzzGmemResolveOpt        = obj.int("vinzz_gmem_resolve_opt", 1)
+            vinzzSubgroupOpt           = obj.int("vinzz_subgroup_opt", 1)
             vinzzDistantHorizonsSupport = obj.int("vinzz_distant_horizons_support", 0)
             vinzzGlslPragmaOpt = obj.int("vinzz_glsl_pragma_opt", 0)
             vinzzReducePrecision = obj.int("vinzz_reduce_precision", 0)
