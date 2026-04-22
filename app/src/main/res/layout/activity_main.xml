@@ -3314,7 +3314,6 @@
                     android:layout_height="wrap_content"
                     android:checked="false"/>
             </LinearLayout>
-
    </LinearLayout
 
     </androidx.core.widget.NestedScrollView>
