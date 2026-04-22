@@ -3267,55 +3267,6 @@
                     android:checked="true"/>
             </LinearLayout>
 
-        </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="5dp"
-                android:background="@drawable/card_item_bg"
-                android:gravity="center_vertical"
-                android:orientation="horizontal"
-                android:paddingStart="14dp"
-                android:paddingEnd="10dp"
-                android:paddingTop="11dp"
-                android:paddingBottom="11dp">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Distant Horizons Support"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp"
-                        android:textStyle="bold"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Enable compute + disable depth invalidation for DH compatibility."
-                        android:textColor="#7799BB"
-                        android:textSize="11sp"
-                        android:layout_marginTop="2dp"/>
-                </LinearLayout>
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="32dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="#2EC9D9"/>
-                <com.google.android.material.materialswitch.MaterialSwitch
-                    android:id="@+id/switch_vinzz_distant_horizons_support"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="false"/>
-            </LinearLayout>
-   </LinearLayout
-
     </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
